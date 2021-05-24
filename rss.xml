@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 17 May 2021 14:58:41 GMT</lastBuildDate><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 24 May 2021 16:42:39 GMT</lastBuildDate><item><title><![CDATA[最长回文字符串]]></title><description><![CDATA[最长回文字符串   从下标i为1开始遍历字符串str，以stri为中心扩展查找最长字符串]]></description><link>https://chinleyhuang.ink/longest/</link><guid isPermaLink="false">https://chinleyhuang.ink/longest/</guid><pubDate>Sun, 23 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;最长回文字符串&lt;/h3&gt;
+&lt;p&gt;  从下标i为1开始遍历字符串str，以str[i]为中心扩展查找最长字符串&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var find = function(start, end, s) {
+  while(start &amp;gt;= 0 &amp;amp;&amp;amp; end &amp;lt; s.length &amp;amp;&amp;amp; s[start] === s[end] &amp;amp;&amp;amp; start &amp;lt;= end) {
+      start-=1;
+      end+=1;
+  }
+  return [start+1, end-1]; // 因为退出while循环时s[start] ！== s[end]，因此需要回退上一个值
+}
+
+var max = function(start1, end1, start2, end2) {
+  return (end1 - start1) &amp;gt; (end2 - start2) ? [start1, end1] : [start2, end2];
+}
+
+var longestPalindrome = function(s) {
+  if(s.length == 1) {
+      return s;
+  }
+  let len = s.length - 1;
+  let start = 0, end = 0;
+  for(let i= 1;i&amp;lt;=len;i++) {
+      const [start1, end1] = find(i,i,s);
+      const [start2, end2] = find(i-1, i, s);
+      const [maxStart, maxEnd] = max(start1, end1, start2, end2);
+      if((maxEnd - maxStart) &amp;gt;= (end - start)) {
+          start = maxStart;
+          end = maxEnd;
+      }
+  }
+  return s.substring(start, end+1); // substring不包含end下标的值，因此需要+1
+};&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[webpack学习]]></title><description><![CDATA[webpack 模块打包工具 为什么需要webpack   1.解决浏览器兼容问题
+  2.将散落的模块打包到一起，解决频繁请求的问题
+  3.支持将不同的资源，例如图片、字体等作为模块调用，便于维护与处理业务 模块打包   1.定义打包入口 entry, entry…]]></description><link>https://chinleyhuang.ink/webpack/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h1&gt;webpack 模块打包工具&lt;/h1&gt;
+&lt;h2&gt;为什么需要webpack&lt;/h2&gt;
+&lt;p&gt;  1.解决浏览器兼容问题
+2.将散落的模块打包到一起，解决频繁请求的问题
+3.支持将不同的资源，例如图片、字体等作为模块调用，便于维护与处理业务&lt;/p&gt;
+&lt;h2&gt;模块打包&lt;/h2&gt;
+&lt;p&gt;  1.定义打包入口 entry, entry内部默认是只能处理javascript代码
+2.配置打包出口 output
+3.三种配置模式：
+1.development: 自动优化加载速度，添加辅助工作的插件
+2.production: 自动优化打包结果，打包速度偏慢
+3.node: 不作任何操作&lt;/p&gt;
+&lt;h2&gt;loader机制：实现特殊资源加载&lt;/h2&gt;
+&lt;p&gt;  css-loader只把css模块加载到js中，并不会使用这个模块
+style-loade把css-loader转换后的结果通过追加style的方式加载到页面上
+一旦配置多个 Loader，执行顺序是从后往前执行的&lt;/p&gt;
+&lt;h2&gt;插件机制：增强webpack自动化构建的能力&lt;/h2&gt;
+&lt;h3&gt;常用插件&lt;/h3&gt;
+&lt;p&gt;  clean-webpack-plugin: 实现自动在打包之前清除 dist 目录（上次的打包结果）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu…]]></description><link>https://chinleyhuang.ink/how-browser-work/</link><guid isPermaLink="false">https://chinleyhuang.ink/how-browser-work/</guid><pubDate>Fri, 07 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;名词介绍：CPU、GPU、内存和多线程架构&lt;/h3&gt;
 &lt;p&gt;cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu可以承担更多计算任务。在三层计算机体系结构中，硬件位于底部，操作系统位于中间，应用程序则在最上层。在使用计算机时，应用程序使用操作系统提供的机制在CPU和GPU上运行。&lt;/p&gt;
