@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 24 May 2021 16:42:39 GMT</lastBuildDate><item><title><![CDATA[最长回文字符串]]></title><description><![CDATA[最长回文字符串   从下标i为1开始遍历字符串str，以stri为中心扩展查找最长字符串]]></description><link>https://chinleyhuang.ink/longest/</link><guid isPermaLink="false">https://chinleyhuang.ink/longest/</guid><pubDate>Sun, 23 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;最长回文字符串&lt;/h3&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 02 Aug 2021 16:26:57 GMT</lastBuildDate><item><title><![CDATA[路径问题]]></title><description><![CDATA[问题描述   一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。   机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。   问总共有多少条不同的路径？   hw-os-app…]]></description><link>https://chinleyhuang.ink/longest/path/</link><guid isPermaLink="false">https://chinleyhuang.ink/longest/path/</guid><pubDate>Sun, 01 Aug 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;问题描述&lt;/h3&gt;
+&lt;p&gt;  一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。&lt;/p&gt;
+&lt;p&gt;  机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。&lt;/p&gt;
+&lt;p&gt;  问总共有多少条不同的路径？&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  输入：m = 3, n = 7&lt;/p&gt;
+&lt;p&gt;  输出：28&lt;/p&gt;
+&lt;h3&gt;做题思路&lt;/h3&gt;
+&lt;p&gt;  给定终点，不同方向不同路径，或者每步步数不定，典型的动态规划题目&lt;/p&gt;
+&lt;p&gt;  动态规划三要素：1.重叠子问题 2.最优子结构 3.状态转移方程&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;重叠子问题
+走到（m,n)位置的路径，由走到（m, n-1)路径数量和走到（m-1，n)路径数量组成&lt;/li&gt;
+&lt;li&gt;最优子结构&lt;/li&gt;
+&lt;li&gt;状态转移方程&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;f(m,n)=f(m−1,n)+f(m,n−1)
+
+f(i, 0) = 1, i &amp;lt; m
+
+f(0, j) = 1, j &amp;lt; n&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;code&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt; var uniquePaths = function(m, n) {
+  const arr = [];
+  for(let i = 0; i &amp;lt; m; i++) {
+      arr[i] = [];
+      arr[i][0] = 1;
+  }
+  for(let j = 0; j&amp;lt;n; j++) {
+      arr[0][j] = 1;
+  }
+  for(let i=1;i&amp;lt;m;i++) {
+      for(let j=1;j&amp;lt;n;j++) {
+          arr[i][j] = arr[i-1][j] + arr[i][j-1];
+      }
+  }
+
+  return arr[m-1][n-1];
+};&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;延伸题&lt;/h3&gt;
+&lt;h4&gt;不同路径 II&lt;/h4&gt;
+&lt;p&gt;  一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。&lt;/p&gt;
+&lt;p&gt;  机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。&lt;/p&gt;
+&lt;p&gt;  现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;https://assets.leetcode.com/uploads/2020/11/04/robot1.jpg&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  解题思路： 当有0时把当前点置0，边界中若f(i,0)有障碍，则 i&amp;#x3C; j &amp;#x3C; m都要置0&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var uniquePathsWithObstacles = function(obstacleGrid) {
+  const n = obstacleGrid.length, m = obstacleGrid[0].length;
+  const arr = createArray(m,n);
+  arr[0][0] = obstacleGrid[0][0] ? 0 : 1;
+  for(let i= 1;i&amp;lt;m;i++) {
+      arr[0][i] = obstacleGrid[0][i] === 1 ? 0 : arr[0][i-1];
+  }
+
+  for(let j=1;j&amp;lt;n;j++) {
+      arr[j][0] = obstacleGrid[j][0] === 1 ? 0 : arr[j-1][0];
+  }
+  for(let i = 1; i&amp;lt; m; i++) {
+      for(let j=1;j&amp;lt;n;j++) {
+          arr[j][i] = obstacleGrid[j][i] === 1 ? 0 : arr[j-1][i] + arr[j][i-1];
+      }
+  }
+  return arr[n-1][m-1];
+};
+
+function createArray(m,n) {
+  return new Array(n).fill(&amp;#39;&amp;#39;).map(() =&amp;gt; new Array(m).fill(0));
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;路径最小和&lt;/h4&gt;
+&lt;p&gt;  给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。&lt;/p&gt;
+&lt;p&gt;  说明：每次只能向下或者向右移动一步。&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;https://assets.leetcode.com/uploads/2020/11/05/minpath.jpg&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  输入：grid = [[1,3,1],[1,5,1],[4,2,1]]&lt;/p&gt;
+&lt;p&gt;  输出：7&lt;/p&gt;
+&lt;p&gt;  解释：因为路径 1→3→1→1→1 的总和最小。&lt;/p&gt;
+&lt;p&gt;  把（m,n)上的数字表示成a(m,n),路径(m,n)上数字最小和为Sum(m,n)&lt;/p&gt;
+&lt;p&gt;  Sum(m,n) = Math.min(Sum(m-1,n), Sum(m, n-1)) + a(m,n)&lt;/p&gt;
+&lt;p&gt;  表中的数据把路径之和替换为路径的最小数&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  var minPathSum = function(grid) {
+    const n = grid.length, m = grid[0].length;
+    const arr = createArray(m,n);
+    arr[0][0] = grid[0][0];
+    for(let i = 1; i &amp;lt; m; i++) {
+        arr[0][i] = arr[0][i-1] + grid[0][i];
+    }
+
+    for(let j = 1; j &amp;lt; n; j++) {
+        arr[j][0] = arr[j-1][0] + grid[j][0];
+    }
+
+    for(let i = 1; i&amp;lt;m; i++) {
+        for(let j =1; j&amp;lt;n;j++) {
+            arr[j][i] = grid[j][i] + Math.min(arr[j][i-1], arr[j-1][i]);
+        }
+    }
+    
+    return arr[n-1][m-1];
+};
+
+function createArray(m,n) {
+    return new Array(n).fill(&amp;#39;&amp;#39;).map(()=&amp;gt;new Array(m).fill(0));
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[前端基础建设与架构]]></title><description><![CDATA[npm安装机制与企业级部署私服原理 npm内部机制和核心原理   优先安装依赖到当前的项目目录，使得不同项目依赖自成体系。   npm安装流程：   1.执行npm install后，首先检查npm配置。npm配置文件优先级：项目级.npmrc > 用户级.npmrc…]]></description><link>https://chinleyhuang.ink/npm/</link><guid isPermaLink="false">https://chinleyhuang.ink/npm/</guid><pubDate>Thu, 10 Jun 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h1&gt;npm安装机制与企业级部署私服原理&lt;/h1&gt;
+&lt;h2&gt;npm内部机制和核心原理&lt;/h2&gt;
+&lt;p&gt;  优先安装依赖到当前的项目目录，使得不同项目依赖自成体系。&lt;/p&gt;
+&lt;p&gt;  npm安装流程：&lt;/p&gt;
+&lt;p&gt;  1.执行npm install后，首先检查npm配置。npm配置文件优先级：项目级.npmrc &gt; 用户级.npmrc &gt; 全局级.npmrc &gt; npm内置的.npmrc&lt;/p&gt;
+&lt;p&gt;  2.检查完配置后，检查package-lock.json文件是否和package.json文件声明的依赖一致：&lt;/p&gt;
+&lt;p&gt;   a.一致，直接使用package-lock.json文件，从缓存或者网络中加载依赖&lt;/p&gt;
+&lt;p&gt;   b.不一致，按照npm版本处理，不同版本处理方式不同。&lt;/p&gt;
+&lt;p&gt;  3.如果没有package-lock.json文件，则根据packge,json构建递归依赖树，按照依赖树下载资源，在下载过程中就会检查是否有相关资源缓存。&lt;/p&gt;
+&lt;p&gt;   a.存在缓存资源，将缓存资源解压到node_modules中&lt;/p&gt;
+&lt;p&gt;   b.不存在，从npm下载包，检验包的完整，添加到缓存中，并解压到node_modules.&lt;/p&gt;
+&lt;p&gt;  最后生成packge-lock.json文件&lt;/p&gt;
+&lt;h2&gt;npm link 本地调试包在项目中的可用性&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[最长回文字符串]]></title><description><![CDATA[最长回文字符串   从下标i为1开始遍历字符串str，以stri为中心扩展查找最长字符串]]></description><link>https://chinleyhuang.ink/longest/</link><guid isPermaLink="false">https://chinleyhuang.ink/longest/</guid><pubDate>Sun, 23 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;最长回文字符串&lt;/h3&gt;
 &lt;p&gt;  从下标i为1开始遍历字符串str，以str[i]为中心扩展查找最长字符串&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var find = function(start, end, s) {
   while(start &amp;gt;= 0 &amp;amp;&amp;amp; end &amp;lt; s.length &amp;amp;&amp;amp; s[start] === s[end] &amp;amp;&amp;amp; start &amp;lt;= end) {
@@ -29,11 +142,11 @@ var longestPalindrome = function(s) {
   }
   return s.substring(start, end+1); // substring不包含end下标的值，因此需要+1
 };&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[webpack学习]]></title><description><![CDATA[webpack 模块打包工具 为什么需要webpack   1.解决浏览器兼容问题
-  2.将散落的模块打包到一起，解决频繁请求的问题
+  2.将散落的模块打包 到一起，解决频繁请求的问题
   3.支持将不同的资源，例如图片、字体等作为模块调用，便于维护与处理业务 模块打包   1.定义打包入口 entry, entry…]]></description><link>https://chinleyhuang.ink/webpack/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h1&gt;webpack 模块打包工具&lt;/h1&gt;
 &lt;h2&gt;为什么需要webpack&lt;/h2&gt;
 &lt;p&gt;  1.解决浏览器兼容问题
-2.将散落的模块打包到一起，解决频繁请求的问题
+2.将散落的模块打包 到一起，解决频繁请求的问题
 3.支持将不同的资源，例如图片、字体等作为模块调用，便于维护与处理业务&lt;/p&gt;
 &lt;h2&gt;模块打包&lt;/h2&gt;
 &lt;p&gt;  1.定义打包入口 entry, entry内部默认是只能处理javascript代码
