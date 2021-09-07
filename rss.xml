@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 15 Aug 2021 09:06:33 GMT</lastBuildDate><item><title><![CDATA[回溯]]></title><description><![CDATA[回溯涉及到的类型：组合：给定几个数字，返回所有组合， 切割：一个字符串做分割， 子集、排列、棋盘   所有的回溯法都可以抽象为一个树形结构 组合题 17. 电话号码的字母组合   给定一个仅包含数字 2-…]]></description><link>https://chinleyhuang.ink/leetcode/recall/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/recall/</guid><pubDate>Sun, 08 Aug 2021 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;  回溯涉及到的类型：组合：给定几个数字，返回所有组合， 切割：一个字符串做分割， 子集、排列、棋盘&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 07 Sep 2021 16:00:16 GMT</lastBuildDate><item><title><![CDATA[滑动算法]]></title><description><![CDATA[滑动：按照一定的方向来
+窗口：大小不是固定的，可以不断扩张，也可以不断缩小]]></description><link>https://chinleyhuang.ink/leetcode/sliding/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/sliding/</guid><pubDate>Mon, 16 Aug 2021 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;滑动：按照一定的方向来
+窗口：大小不是固定的，可以不断扩张，也可以不断缩小&lt;/p&gt;</content:encoded></item><item><title><![CDATA[回溯]]></title><description><![CDATA[回溯涉及到的类型：组合：给定几个数字，返回所有组合， 切割：一个字符串做分割， 子集、排列、棋盘   所有的回溯法都可以抽象为一个树形结构 组合题 17. 电话号码的字母组合   给定一个仅包含数字 2-…]]></description><link>https://chinleyhuang.ink/leetcode/recall/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/recall/</guid><pubDate>Sun, 08 Aug 2021 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;  回溯涉及到的类型：组合：给定几个数字，返回所有组合， 切割：一个字符串做分割， 子集、排列、棋盘&lt;/p&gt;
 &lt;p&gt;  所有的回溯法都可以抽象为一个树形结构&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function backtrack() {
   if(终止条件) {
@@ -301,11 +303,11 @@ var longestPalindrome = function(s) {
   }
   return s.substring(start, end+1); // substring不包含end下标的值，因此需要+1
 };&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[webpack学习]]></title><description><![CDATA[webpack 模块打包工具 为什么需要webpack   1.解决浏览器兼容问题
-  2.将散落的模块打包 到一起，解决频繁请求的问题
+  2.将散落的模块打包到一起，解决频繁请求的问题
   3.支持将不同的资源，例如图片、字体等作为模块调用，便于维护与处理业务 模块打包   1.定义打包入口 entry, entry…]]></description><link>https://chinleyhuang.ink/webpack/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h1&gt;webpack 模块打包工具&lt;/h1&gt;
 &lt;h2&gt;为什么需要webpack&lt;/h2&gt;
 &lt;p&gt;  1.解决浏览器兼容问题
-2.将散落的模块打包 到一起，解决频繁请求的问题
+2.将散落的模块打包到一起，解决频繁请求的问题
 3.支持将不同的资源，例如图片、字体等作为模块调用，便于维护与处理业务&lt;/p&gt;
 &lt;h2&gt;模块打包&lt;/h2&gt;
 &lt;p&gt;  1.定义打包入口 entry, entry内部默认是只能处理javascript代码
