@@ -1,4 +1,590 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 31 Oct 2021 10:07:41 GMT</lastBuildDate><item><title><![CDATA[JS中的树数据结构]]></title><description><![CDATA[树   树是一种被广泛应用的数据结构，例如： dom是一种树结构数据 os…]]></description><link>https://chinleyhuang.ink/leetcode/tree/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/tree/</guid><pubDate>Sun, 17 Oct 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h1&gt;树&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 Apr 2022 04:41:39 GMT</lastBuildDate><item><title><![CDATA[http发展史]]></title><description><![CDATA[HTTP/0.9   只允许用GET请求从服务器上获取HTML文档，并且在响应请求之后立即关闭连接 HTTP/1.0 增加HEAD、POST等新方法 增加了响应状态码，标记可能的错误原因 引入协议版本号的概念 引入了HTTP header的概念，让HTTP…]]></description><link>https://chinleyhuang.ink/http/发展史/</link><guid isPermaLink="false">https://chinleyhuang.ink/http/发展史/</guid><pubDate>Wed, 06 Apr 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;HTTP/0.9&lt;/h4&gt;
+&lt;p&gt;  只允许用GET请求从服务器上获取HTML文档，并且在响应请求之后立即关闭连接&lt;/p&gt;
+&lt;h4&gt;HTTP/1.0&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;增加HEAD、POST等新方法&lt;/li&gt;
+&lt;li&gt;增加了响应状态码，标记可能的错误原因&lt;/li&gt;
+&lt;li&gt;引入协议版本号的概念&lt;/li&gt;
+&lt;li&gt;引入了HTTP header的概念，让HTTP处理请求和响应更加灵活&lt;/li&gt;
+&lt;li&gt;传输的数据不再仅限于文本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;HTTP/1.1&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;增加PUT、DELETE等新方法&lt;/li&gt;
+&lt;li&gt;增加缓存管理和控制&lt;/li&gt;
+&lt;li&gt;明确了链接管理，允许持久连接&lt;/li&gt;
+&lt;li&gt;运行响应数据分块(chunked),利于传输大文件&lt;/li&gt;
+&lt;li&gt;强制要求Host头，让互联网主机托管称为可能&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;HTTP/2 基于Google的SPDY协议&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;二进制协议，不再是纯文本；&lt;/li&gt;
+&lt;li&gt;可发起多个请求&lt;/li&gt;
+&lt;li&gt;使用专用算法压缩头部，减少数据传输量&lt;/li&gt;
+&lt;li&gt;允许服务器主动向客户端推送数据&lt;/li&gt;
+&lt;li&gt;增加安全性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;HTTP/3 基于Google的QUIC协议&lt;/h4&gt;
+&lt;h4&gt;HTTP是什么&lt;/h4&gt;
+&lt;p&gt;  超文本传输协议。
+首先HTTP是一个用在计算机世界里的协议，使用计算机能够理解的语言确立一种计算机之间交流通信的规范，以及相关的各种控制和错误处理方式。&lt;/p&gt;
+&lt;p&gt;  HTTP协议是一个双向协议。数据在A和B之间双向流动。举例来说，浏览器就是请求方A,网易、新浪这些网站就是应答方B，双方约定HTTP协议来通信，于是浏览器把一些数据发送给网站、网站再把一些数据发回给浏览器。
+数据虽然在A和B之间传输，但并没有限制A和B两个角色，允许中间有“中转”&lt;/p&gt;
+&lt;p&gt;  A&amp;#x3C;&gt;B变成A&amp;#x3C;&gt;X&amp;#x3C;&gt;Y&amp;#x3C;&gt;B,只要不打扰基本的数据传输，就可以添加任意功能，例如安全认证、数据压缩、编码转换等。因此HTTP是一个在计算机世界里专门用来在两点之前传输数据的约定和规范。&lt;/p&gt;
+&lt;p&gt;  图片、视频、音频、压缩包都可以是“文本”。而“超文本”，是文字、图片、视频、音频等的混合体，最关键是含有”超链接“，能从一个”超文本“跳跃到另一个”超文本“，形成复杂的非线性、网状的结构关系。“超文本”最熟悉的就是HTML,本身只是纯文字文件，但内部用很多标签定义了对图片、音频、视频等的连接，再经过浏览器的解释，呈现一个具有视听信息的页面。&lt;/p&gt;
+&lt;p&gt;  HTTP是一个在计算机世界里专门在两点之间传输文字、图片、音频、视频等超文本数据的约定和规范。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP 是一个用在计算机世界里的协议，它确立了一种计算机之间交流通信的规范，以及相关的各种控制和错误处理方式。- HTTP 专门用来在两点之间传输数据，不能用于广播、寻址或路由。&lt;/li&gt;
+&lt;li&gt;HTTP 传输的是文字、图片、音频、视频等超文本数据。&lt;/li&gt;
+&lt;li&gt;HTTP 是构建互联网的重要基础技术，它没有实体，依赖许多其他的技术来实现，但同时许多技术也都依赖于它。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;https://static001.geekbang.org/resource/image/51/64/5102fc33d04b59b36971a5e487779864.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react hooks]]></title><description><![CDATA[react hooks 相关阅读 「react进阶」一文吃透react-hooks原理 https://juejin.cn/post/6944863057000529933 为什么需要react hooks 在react hooks…]]></description><link>https://chinleyhuang.ink/foundamention/react/hooks相关/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/hooks相关/</guid><pubDate>Thu, 31 Mar 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;react hooks&lt;/h4&gt;
+&lt;h6&gt;相关阅读&lt;/h6&gt;
+&lt;p&gt;「react进阶」一文吃透react-hooks原理&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/6944863057000529933&quot;&gt;https://juejin.cn/post/6944863057000529933&lt;/a&gt;&lt;/p&gt;
+&lt;h5&gt;为什么需要react hooks&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;在react hooks之前，类组件难以共享组件中与状态相关的逻辑，高阶组件学习成本高、组合方式为嵌套，可能props相互覆盖，嵌套地狱&lt;/li&gt;
+&lt;li&gt;this绑定混乱&lt;/li&gt;
+&lt;li&gt;逻辑复杂的类组件会变的难以开发和维护&lt;/li&gt;
+&lt;li&gt;类组件到处都是对状态的访问和处理，导致组件难以拆分&lt;/li&gt;
+&lt;li&gt;在生命周期中混杂不想干的逻辑&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5&gt;hook如何解决上述问题&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;通过一个hook函数封装跟状态有关的逻辑,将逻辑从组件中抽离出来&lt;/li&gt;
+&lt;li&gt;函数组件没有this相关问题&lt;/li&gt;
+&lt;li&gt;不同数据处理逻辑/不同副作用可以单独用一个useEffect实现&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5&gt;相关QA&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;在无状态组件每一次函数上下执行的时候，react用什么方式记录了hooks的状态
+1.1 循环链表&lt;/li&gt;
+&lt;li&gt;多个react-hooks用什么来记录每一个hooks的顺序？为什么不能在条件语句中声明hooks？hooks声明为什么在组件的最顶部&lt;/li&gt;
+&lt;li&gt;function函数组件中的useState，和class类组件的setState有什么区别
+3.1 函数组件的useState, setState时直接替换原数据， 类组件会合并对象数据
+3.2&lt;/li&gt;
+&lt;li&gt;react是怎么捕获hooks的执行上下文，是在函数组件内部？&lt;/li&gt;
+&lt;li&gt;为什么useRef不需要依赖注入，就能访问到最新改变值&lt;/li&gt;
+&lt;li&gt;useMemo是怎么对值做缓存，如果应用它优化性能&lt;/li&gt;
+&lt;li&gt;为什么两次传入useState的值相同，函数组件不更新&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  current fiber树： 当完成一次渲染之后，会产生一个current树，current会在commit阶段替换成真实的dom树。
+当前屏幕上显示内容对应的fiber树称为current fiber树。&lt;/p&gt;
+&lt;p&gt;  workInProgress fiber树：即将调和渲染的fiber树。再一次新的组件更新过程中，会从current复制一份作为workInprogress，更新完毕之后，将当前的workInProgress树赋值给current树。正在内存中构建的fiber树称为workInprogress树，反映了要刷新到屏幕的未来状态。 &lt;/p&gt;
+&lt;p&gt;  workInProgress.memoizedState: 在class组件中，memoizedState存放state信息，在function组件中，memoizedState在一次调和渲染过程中，以链表的形式存放hooks信息&lt;/p&gt;
+&lt;p&gt;  currentHook: current树上的指向当前调度的hooks节点
+workInProgressHook: 可以理解workInProgress树上指向的当前调度的hooks节点&lt;/p&gt;
+&lt;h4&gt;renderWithHooks函数：&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;首先先制空workInProgress树的memoizedState和updateQueue。&lt;/li&gt;
+&lt;li&gt;通过current树上是否有memoizedState信息来判断是否第一次渲染，第一次渲染组件，用的是HooksDispatcherOnMount hooks对象。渲染后，需要更新的函数组件，用的是HooksDispatcherOnUpdate hooks对象。&lt;/li&gt;
+&lt;li&gt;调用Component(props, secondArg)执行函数组件，hooks被依次执行，把hooks信息依次保存到workInProgress树上。&lt;/li&gt;
+&lt;li&gt;重新置空一些变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  &lt;img src=&quot;https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adcbd09984f84d0d97a15df124e83c09~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;h4&gt;hooks初始化，做了什么&lt;/h4&gt;
+&lt;h5&gt;1 mountWorkInProgressHook&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mountWorkInProgressHook&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; hook&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Hook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      memoizedState&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;// useState中 保存 state信息 ｜ useEffect 中 保存着 effect 对象 ｜ useMemo 中 保存的是缓存的值和deps ｜ useRef中保存的是ref 对象&lt;/span&gt;
+      baseState&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      baseQueue&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      queue&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      next&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;workInProgressHook &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 例子中的第一个`hooks`-&gt; useState(0) 走的就是这样。&lt;/span&gt;
+      currentlyRenderingFiber&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;memoizedState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; workInProgressHook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; hook&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      workInProgressHook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; workInProgressHook&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; hook&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; workInProgressHook&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;  mountWorkInProgressHook函数每次执行一个hooks函数，都产生一个hook对象，里面保存当前hook信息，然后将每个hooks以链表的形式串联起来，并赋值给workInProgress的memoizedState。&lt;/p&gt;
+&lt;p&gt;  memoizedState: useState保存state信息｜useEffect保存effect对象｜useMemo保存缓存的值和deps|useRef保存的是ref对象&lt;/p&gt;
+&lt;p&gt;  baseQueue: useState和useReducer中保存最新的更新队列&lt;/p&gt;
+&lt;p&gt;  baseState: useState和useReducer中，一次更新里产生的最新state值&lt;/p&gt;
+&lt;p&gt;  queue: 保存待更新队列pendingQueue，更新函数dispatch等信息&lt;/p&gt;
+&lt;p&gt;  next: 指向下一个hooks&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5660f1be680140239a8cf4e34cfccc90~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  hooks通过什么来证明唯一性： 通过hooks链表顺序，因此不能在条件语句中声明hooks,&lt;strong&gt;一旦在条件语句中声明hooks，下一次组件更新，hooks链表结构被破坏，current树的memoziedState缓存Hooks信息，和当前workInProgress不一致。如果涉及到读取state等操作，就会发生异常&lt;/strong&gt;&lt;/p&gt;
+&lt;h5&gt;mountState做了什么&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mountState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token parameter&quot;&gt;initialState&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; hook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mountWorkInProgressHook&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; initialState &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;function&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 如果 useState 第一个参数为函数，执行函数得到state&lt;/span&gt;
+    initialState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;initialState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  hook&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;memoizedState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; hook&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;baseState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; initialState&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; queue &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;hook&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;queue &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    pending&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;// 带更新的&lt;/span&gt;
+    dispatch&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 负责更新函数&lt;/span&gt;
+    lastRenderedReducer&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; basicStateReducer&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//用于得到最新的 state ,&lt;/span&gt;
+    lastRenderedState&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; initialState&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 最后一次得到的 state&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; dispatch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;queue&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dispatch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;dispatchAction&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 负责更新的函数&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    currentlyRenderingFiber&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    queue&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;hook&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;memoizedState&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; dispatch&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;  mountState执行：首先得到初始化state，将它赋值给mountWorkInProgressHook产生的hook对象的memoizedState和baseState属性。创建queue对象，保存负责更新的信息。&lt;/p&gt;
+&lt;h5&gt;dispatchAction是什么&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; dispatchAction&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  fiber&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Fiber&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  queue&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; UpdateQueue&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  action&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;A&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;number&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setNumber&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;  dispatchAction就是&lt;strong&gt;setNumber&lt;/strong&gt;，dispatchAction第一个参数和第二个参数，已经被bind给改成currentRenderingFiber和queue,传入的参数是第三个参数action.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之call和apply的模拟实现]]></title><description><![CDATA[什么是call   call方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法 call改变了this的指向，指向到foo bar函数执行了 call与apply的区别 foo.call(bar, ‘kevin’, 18);
+foo.call(bar…]]></description><link>https://chinleyhuang.ink/foundamention/call和apply/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/call和apply/</guid><pubDate>Sun, 27 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么是call&lt;/h4&gt;
+&lt;p&gt;  call方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; bar &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  value&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;bar&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token class-name&quot;&gt;Function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;call2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; _context &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; context &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; window&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 用this获取调用call2的函数&lt;/span&gt;
+  _context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fn &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; _args &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;arguments&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; _context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;_args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;delete&lt;/span&gt; _context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fn
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+foo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;call2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;bar&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;call改变了this的指向，指向到foo&lt;/li&gt;
+&lt;li&gt;bar函数执行了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;call与apply的区别&lt;/h4&gt;
+&lt;p&gt;foo.call(bar, ‘kevin’, 18);
+foo.call(bar, [‘kevin’, 18]);&lt;/p&gt;
+&lt;h4&gt;bind&lt;/h4&gt;
+&lt;p&gt;  bind() 方法会创建一个新函数。当这个新函数被调用时，bind() 的第一个参数将作为它运行时的 this，之后的一序列参数将会在传递的实参前传入作为它的参数。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[事件循环，宏任务与微任务]]></title><description><![CDATA[JavaScript…]]></description><link>https://chinleyhuang.ink/foundamention/事件循环/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/事件循环/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;JavaScript是一个单线程的脚本语言，所以在一行代码执行的过程中，必然不会存在同时执行的另一行代码。&lt;/p&gt;
+&lt;p&gt;如果有些代码执行了大量的计算，比方在前端破解密码之类的操作，就会导致后续代码一直在等待，页面处于假死状态，因为前边的代码没有执行完。&lt;/p&gt;
+&lt;p&gt;所以如果所有代码都是同步执行的，对于一些请求难道要一直循环代码去判断是否拿到了返回结果么，于是就有异步事件的概念。注册一个回调函数，比如说发一个网络请求，我们告诉主程序等到接收到数据后通知我，然后我们就可以去做其他事情了。&lt;/p&gt;
+&lt;p&gt;然后在异步完成后，会通知我们，但是此时可能程序正在做其他事情，所以即使异步完成了也要在一旁等待，等到程序空闲下来才有时间去看哪些异步已经完成了，可以去执行。&lt;/p&gt;
+&lt;h4&gt;微任务和宏任务的区别&lt;/h4&gt;
+&lt;p&gt;多个宏任务合在一起可以认为有一个任务队列在这，任务队列中的都是已经完成的异步操作，在当前的微任务没有执行完成时，是不会执行下一个宏任务的。&lt;/p&gt;
+&lt;h4&gt;宏任务&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;setTimeout&lt;/li&gt;
+&lt;li&gt;setInterval&lt;/li&gt;
+&lt;li&gt;requestAnimationFrame&lt;/li&gt;
+&lt;li&gt;I/O&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;微任务&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Promise.then catch finally&lt;/li&gt;
+&lt;li&gt;mutationObserver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;什么是事件循环&lt;/h4&gt;
+&lt;p&gt;  JavaScipt代码执行的过程中，除了依靠函数调用栈来确定函数的执行顺序外，还依靠任务队列来确定代码执行，整个执行过程称为事件循环过程。一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。任务队列又分为宏任务与微任务。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之about fiber]]></title><description><![CDATA[为什么引入Fiber这个架构 JavaScript是单线程的并且它和ui渲染线程是互斥的。在React实现fiber架构之前，react的调度过程是基于递归的深度优先遍历。所以在调度过程中，JavaScript会长时间占据主线程，使得ui…]]></description><link>https://chinleyhuang.ink/foundamention/react/fiber/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/fiber/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;为什么引入Fiber这个架构&lt;/h4&gt;
+&lt;p&gt;JavaScript是单线程的并且它和ui渲染线程是互斥的。在React实现fiber架构之前，react的调度过程是基于递归的深度优先遍历。所以在调度过程中，JavaScript会长时间占据主线程，使得ui线程一直挂起，页面内容得不到刷新，造成一种卡顿的感觉&lt;/p&gt;
+&lt;p&gt;所以React通过 fiber架构 和 时间分片 来进行任务调度解决这个问题，目标就是将渲染任务分解成多个渲染任务，放到浏览器的每一帧里去执行，达到可中断、可恢复的效果。&lt;/p&gt;
+&lt;p&gt;具体的改动就是每个virtual dom都有一个对应的fibernode,fibernode会记录父节点、兄弟节点、子节点的索引，从而形成一个fiber tree。整个调度过程就会以fiber tree上进行深度优先遍历，并且是以迭代的方式取代递归的方式，从而实现可中断、可恢复的效果。以fiber node为最小颗粒度，将整棵树的深度优先遍历和diff过程拆到浏览器的每一帧的空闲时间里进行，从而避免因为调度长时间占据主线程而导致的ui不更新造成卡顿的问题。&lt;/p&gt;
+&lt;h4&gt;React如何将任务拆解到每一帧里&lt;/h4&gt;
+&lt;h5&gt;一、React如何对齐浏览器的每一帧：&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;setTimeout&lt;/li&gt;
+&lt;li&gt;requestAnimationFrame&lt;/li&gt;
+&lt;li&gt;requestIdleCallback&lt;/li&gt;
+&lt;li&gt;MessageChannel&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;目前React是使用MessageChannel来实现时间分片（与浏览器的每一帧对齐），伪代码：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; messagechannel &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MessageChannel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; port &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; messagechannel&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;port2&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 每次port.postMessage()调用就会执行一个宏任务&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 该宏任务为调用scheduler.scheduleTask方法&lt;/span&gt;
+channel&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;port&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;onmessage &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; scheduler&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;scheduleTask&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; scheduler &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;scheduleTask&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; task &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;pickTask&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; continuousTask &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// 如果该任务未执行完，则在下个宏任务继续执行&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;continuousTask&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      port&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;postMessage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这样的思想就是将任务的继续执行逻辑放在宏任务里，就可以将主线程暂还给浏览器。在页面内容更新后，宏任务就会被执行，任务就会恢复执行。&lt;/p&gt;
+&lt;h6&gt;1.为什么是宏任务不是微任务&lt;/h6&gt;
+&lt;p&gt;  因为微任务在页面更新之前就会被执行，达不到转让主线程的目的。&lt;/p&gt;
+&lt;h6&gt;2.产生宏任务的方式有很多种，为什么是用MessageChannel呢？&lt;/h6&gt;
+&lt;p&gt;  setTimeout、setInterval: 递归执行的最小时间间隔是4ms,这里会造成时间浪费。&lt;/p&gt;
+&lt;p&gt;  requestAnimationFrame: requestAnimationFrame的执行在每一帧刷新前，看起来可以让回调在每一帧前执行。但是有一个问题，如果最开始不是由requestAnimation发起的话，第一帧回调会执行两次。&lt;/p&gt;
+&lt;p&gt;  requestIdeCallback: 兼容性太差&lt;/p&gt;
+&lt;h5&gt;二. 如何将当前task拆分到每一帧中&lt;/h5&gt;
+&lt;p&gt;  在fibertree进行深度优先遍历过程中，每次遍历下一节点都会判断当前帧的时间是否用完。React会根据当前浏览器的帧率来计算每一帧的时间，从而计算出每一帧的结束时间。深度优先遍历下一节点前就会检查当前时间是否已经超过结束时间，是的话就中断执行，等待下一帧的到来。&lt;/p&gt;
+&lt;h5&gt;三. 如何调度任务&lt;/h5&gt;
+&lt;p&gt;  React内部维护两个最小堆，timerQueue和taskQueue。timerQueue里存放的等待执行的任务，taskQueue存放的是立即执行的任务。当有新任务创建之后会根据是否需要立即执行来判断是存放进timerQueue还是taskQueue。当taskQueue为空时，就会取timerQueue的堆顶任务放入taskQueue中，然后React会陆续取taskQueue的堆顶任务执行。&lt;/p&gt;
+&lt;h5&gt;四. 如何插队和恢复执行&lt;/h5&gt;
+&lt;p&gt;  在React执行当前更新任务，深度优先遍历fiber node的时候，每当遍历一个节点前会检查 当前帧时间是否用完 以及 是否有更高优先级的任务被创建，如果有就会停下当前任务，去执行更高级的任务。同时会将当前低优先级的任务重新创建一个任务对象放入到taskQueue中，等待下次重新执行(也就是恢复这个任务)&lt;/p&gt;
+&lt;p&gt;  衍生问题：
+就是一个任务被插队然后重新执行的时候会从头开始执行，也就是会重新进入深度优先遍历，这就造成生命周期有被重复执行的可能。&lt;/p&gt;
+&lt;p&gt;  UNSAFE&lt;em&gt;componentWillReceiveRrops(nextProps)
+UNSAFE&lt;/em&gt;componentWillMount()
+UNSAFE_componentWillUpdate()&lt;/p&gt;
+&lt;h5&gt;React框架运作可以分为三层：&lt;/h5&gt;
+&lt;ol&gt;
+&lt;li&gt;virtual dom: 描述页面长什么样&lt;/li&gt;
+&lt;li&gt;reconciler层：负责调用组件生命周期方法，diff运算等&lt;/li&gt;
+&lt;li&gt;render层：根据不同平台，渲染出响应页面，reactDOM or reactNative&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  以前的reconciler层不能打断，必须一条路走到黑，react 16每执行一段时间，就会将控制权交还给浏览器，可以分段执行。&lt;/p&gt;
+&lt;p&gt;  fiber reconciler在执行过程中，分为两个阶段：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;render/reconcilation: 判断哪些组件需要更新，可中断&lt;/li&gt;
+&lt;li&gt;commit: 插入、移动、删除阶段，不可中断&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  reconcilation phase会先通过render更新组件，在第一次建立fiber阶段，并在之后更新与上一次渲染的dom比较。因此在render阶段判断一下生命周期是否有更新：
+componentWillMount
+componentWillReceiveProps
+componentWillUpdate
+getDerivedStateFromProps
+shouldComponentUpdate&lt;/p&gt;
+&lt;p&gt;  commit阶段执行的生命周期方法：
+getSnapshotBeforeUpdate
+componentDidMount
+componentDidUpdate
+componentWillUnmount&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之合成事件]]></title><description><![CDATA[合成事件   合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理 浏览器事件机制   捕获阶段（父到子） -> 获取到目标元素 -> 冒泡阶段（子到父）
+  Q:若对合成事件进行阻止，原生事件是否会执行。会
+  A…]]></description><link>https://chinleyhuang.ink/foundamention/react/合成事件/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/合成事件/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;合成事件&lt;/h4&gt;
+&lt;p&gt;  合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理&lt;/p&gt;
+&lt;h4&gt;浏览器事件机制&lt;/h4&gt;
+&lt;p&gt;  捕获阶段（父到子） -&gt; 获取到目标元素 -&gt; 冒泡阶段（子到父）
+Q:若对合成事件进行阻止，原生事件是否会执行。会
+A:因为原生事件优先于合成事件执行。而合成事件处于目标阶段，它阻止的冒泡只是阻止合成的事件冒泡，但是原生事件在捕获阶段就已经执行了&lt;/p&gt;
+&lt;h4&gt;合成事件特点&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;React上注册的事件最终会绑定在根结点上(react 17是根结点，之前是在document上)，而不是组件对应的dom。&lt;/li&gt;
+&lt;li&gt;React自身实现了一套事件冒泡机制，因此e.stoppropagation无效&lt;/li&gt;
+&lt;li&gt;React通过对象池的形式管理合成事件对象的创建和销毁，减少垃圾的生成和新对象内存的分配&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;React事件机制&lt;/h4&gt;
+&lt;p&gt;  事件注册、事件存储、事件分发、事件执行（构造合成事件、批处理）&lt;/p&gt;
+&lt;h4&gt;为什么需要合成事件&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;统一浏览器的各个标准，兼容多个浏览器的事件，在底层抹平不同浏览器的差异&lt;/li&gt;
+&lt;li&gt;对合成事件中的调用的setstate进行合并，避免多次更新造成浪费&lt;/li&gt;
+&lt;li&gt;更好的实现事件管控，以便契合react自身的一些策略和优化&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[React之setState]]></title><description><![CDATA[setState是同步还是异步   react是会合并setstate的操作，避免多次渲染更新页面，造成一种异步的假象。React内部有一个全局唯一的标识(isBatchingUpdates)来表示是否进行合并更新。当生命周期函数或合成事件开始执行前，标识会设为true…]]></description><link>https://chinleyhuang.ink/foundamention/react/setState/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/setState/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;setState是同步还是异步&lt;/h4&gt;
+&lt;p&gt;  react是会合并setstate的操作，避免多次渲染更新页面，造成一种异步的假象。React内部有一个全局唯一的标识(isBatchingUpdates)来表示是否进行合并更新。当生命周期函数或合成事件开始执行前，标识会设为true，代码执行完毕之后恢复为false&lt;/p&gt;
+&lt;p&gt;  在react管控的事件里，表现为异步。不受react管控的事件，就会直接更新。故&lt;/p&gt;
+&lt;p&gt;  生命周期函数和合成事件中，表现为异步。
+原生事件和异步代码，表现为异步&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之虚拟dom]]></title><description><![CDATA[什么虚拟dom   平时编写react时候，使用jsx语法糖，经过babel编译后会被转成一个个的createElement的方法。而createElement方法返回的描述dom节点对象就是虚拟dom。
+  虚拟dom是一种模式，是对ui…]]></description><link>https://chinleyhuang.ink/foundamention/react/虚拟dom/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/虚拟dom/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么虚拟dom&lt;/h4&gt;
+&lt;p&gt;  平时编写react时候，使用jsx语法糖，经过babel编译后会被转成一个个的createElement的方法。而createElement方法返回的描述dom节点对象就是虚拟dom。
+虚拟dom是一种模式，是对ui层的一种抽象。这样可以针对不同的运行环境使用一套相同/类似的概念和api进行映射和操作。再通过react dom等类库来进行它和真实dom之间的同步。
+ps: jsx只是react.createElement方法提供的语法糖&lt;/p&gt;
+&lt;h4&gt;为什么需要虚拟dom&lt;/h4&gt;
+&lt;p&gt;  因为之前重新渲染的方法就是重新构建dom,替换旧dom，性能消耗高。虚拟dom页会操作dom树进行渲染更新，但是只针对修改部分进行局部渲染。&lt;/p&gt;
+&lt;h4&gt;diff算法&lt;/h4&gt;
+&lt;p&gt;  diff算法做的事情就是比较新旧虚拟dom树，判断如何更高效的更新真实dom。为了优化diff的时间复杂度，react根据经验做了一些前提假设：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;webUI中dom跨层级的移动特别少，可以忽略不计。只针对同层级dom节点做比较&lt;/li&gt;
+&lt;li&gt;两个不同类型的元素会产生不同的树&lt;/li&gt;
+&lt;li&gt;开发者可以通过设置key的属性，来告知渲染哪些子元素在不同的渲染下可以保存不变&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  在这三个前提下，对新旧虚拟dom树进行深度优先遍历，每遍历到一个节点就会对节点本身和childrens进行对比。&lt;/p&gt;
+&lt;h5&gt;节点本身diff&lt;/h5&gt;
+&lt;p&gt;  节点本身的对比分为：component和element的diff&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;component的对比：
+i. 如果是同一类型的组件，就会查看有没有调用类似shouldcomponentUpdate之类的生命周期，如果需要rerender，就继续对比props和子节点
+ii. 如果不是同一类型的组件，就直接摧毁替换&lt;/li&gt;
+&lt;li&gt;element的对比：
+i. 如果不是同一类型的元素就直接替换
+ii. 否则就对比它的属性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5&gt;childrens的对比&lt;/h5&gt;
+&lt;p&gt;  如果当前节点不需要直接催毁替换的话，就会对当前的新旧childrens进行对比，看是否有新增、插入、删除或移动操作。
+最后就按深度优先遍历的顺序对下一个节点迭代相同的操作&lt;/p&gt;
+&lt;h4&gt;about KEY&lt;/h4&gt;
+&lt;p&gt;  key的机制：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果key发生了变化，就会摧毁重新创建节点&lt;/li&gt;
+&lt;li&gt;如果key没有发生改变，而组件内容或属性有变化，就会更新组件&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[js深入之闭包]]></title><description><![CDATA[什么是闭包   闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数   闭包 = 函数 + 自由变量   ECMAScript…]]></description><link>https://chinleyhuang.ink/foundamention/闭包/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/闭包/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;什么是闭包&lt;/h3&gt;
+&lt;hr&gt;
+&lt;p&gt;  闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数&lt;/p&gt;
+&lt;p&gt;  闭包 = 函数 + 自由变量&lt;/p&gt;
+&lt;p&gt;  ECMAScript中，闭包指的是：&lt;/p&gt;
+&lt;p&gt;从理论角度：所有的函数。因为它们都在创建的时候就将上层上下文的数据保存起来了。哪怕是简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。
+从实践角度：以下函数才算是闭包：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）&lt;/li&gt;
+&lt;li&gt;在代码中引用了自由变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;代码示例&lt;/h3&gt;
+&lt;hr&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;global scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;local scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; scope&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; f&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;f函数执行的时候，尽管checkscope的执行上下文已经从执行上下文栈中弹出，checkscopeContext被销毁了，但f函数的执行上下文维护的作用域还是记录了checkscope的活动变量
+fStack = [VO, checkscopeContext.VO, globalContext.VO]&lt;/p&gt;</content:encoded></item><item><title><![CDATA[防抖与节流]]></title><description><![CDATA[防抖   你尽管触发事件，但我一定在事件触发n秒后才执行，如果在一个事件触发的n秒内又触发了这个事件，就以新的事件的事件为准, n秒后才执行。总是触发完事件n…]]></description><link>https://chinleyhuang.ink/foundamention/防抖与节流/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/防抖与节流/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;防抖&lt;/h4&gt;
+&lt;p&gt;  你尽管触发事件，但我一定在事件触发n秒后才执行，如果在一个事件触发的n秒内又触发了这个事件，就以新的事件的事件为准, n秒后才执行。总是触发完事件n秒内不再触发事件，才执行新的事件&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;debounce&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;fun&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; delay&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; immediate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; timer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;debounced&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; args &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;arguments&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;clearTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;timer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;immediate&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;timer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      timer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        timer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; delay&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      timer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; delay&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  debounced&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;cancel&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;clearTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;timer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    timer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; debounced&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;节流&lt;/h4&gt;
+&lt;p&gt;  一段时间只执行一次,根据首次是否执行以及结束后是否执行，效果与实现方式都有所不同。用leading代表首次是否执行，trailing代表结束后是否再执行一次&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之词法作用域和动态作用域]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/3 静态作用域vs动态作用域 JavaScript…]]></description><link>https://chinleyhuang.ink/foundamention/作用域/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/作用域/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/3&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/3&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;静态作用域vs动态作用域&lt;/h4&gt;
+&lt;p&gt;JavaScript采用词法作用域，也就是静态作用域。
+词法作用域：函数的作用域在函数定义的时候就决定了
+动态作用域：函数的作用域在函数调用的时候才决定&lt;/p&gt;
+&lt;h4&gt;什么是变量提升&lt;/h4&gt;
+&lt;p&gt;  var变量会发生“变量提升”的现象，即变量可以在声明之前使用，值为undefined。let/const声明变量的一定要在声明之后使用，否则报错。&lt;/p&gt;
+&lt;h4&gt;为什么存在变量提升&lt;/h4&gt;
+&lt;p&gt;  主要是因为在执行上下文创建阶段，函数声明和var声明的变量已经被赋予了一个值，var声明被设置了undefined，函数声明为自身，let 和 const 设置为未初始化。作用域创建时两者初始化的值不同。&lt;/p&gt;
+&lt;h4&gt;暂时性死区&lt;/h4&gt;
+&lt;p&gt;  在代码块内，使用let/const声明变量之前，该变量都是不可用的。本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取。只有执行到声明变量，才可以获取和使用该变量。&lt;/p&gt;
+&lt;h4&gt;什么是作用域链&lt;/h4&gt;
+&lt;p&gt;  当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级执行上下文的变量对象中查找，一直到全局上下文的变量对象，也就是全局对象。这种由多个执行上下文的变量对象构成的链表叫做作用域链。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之变量对象]]></title><description><![CDATA[当JavaScript代码执行一段可执行代码时，会创建对应执行上下文。执行上下文有三个关键部分： this的绑定 变量对象/词法环境的创建 活动对象/变量环境的创建]]></description><link>https://chinleyhuang.ink/foundamention/变量对象/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/变量对象/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;当JavaScript代码执行一段可执行代码时，会创建对应执行上下文。执行上下文有三个关键部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;this的绑定&lt;/li&gt;
+&lt;li&gt;变量对象/词法环境的创建&lt;/li&gt;
+&lt;li&gt;活动对象/变量环境的创建&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[js深入之继承的多种方式和优缺点]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/16 继承   原型链继承、借用构造函数、组合继承、原型式继承 继承的方式 原型链继承：child构造函数的prototype指向parent…]]></description><link>https://chinleyhuang.ink/foundamention/继承/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/继承/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/16&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/16&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;继承&lt;/h4&gt;
+&lt;p&gt;  原型链继承、借用构造函数、组合继承、原型式继承&lt;/p&gt;
+&lt;h4&gt;继承的方式&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;原型链继承：child构造函数的prototype指向parent的实例&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;lili&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token class-name&quot;&gt;Child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;引用类型的属性被所有实例共享&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;names &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;lili&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;function Child() {}&lt;/p&gt;
+&lt;p&gt;Child.prototype = new Parent();&lt;/p&gt;
+&lt;p&gt;const child1 = new Child();
+const child2 = new Child();
+child1.names.push(‘kevin’);
+console.log(child1.names); // [‘lili’,‘kevin’];
+child2.names.push(‘moli’);
+console.log(child2.names); // [‘lili’,‘kevin’,‘moli’];&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;2. 在创建child实例时，不能向parent传参
+
+---&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;借用构造函数(经典继承)：在child构造函数中执行Parent的call&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;Parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; child1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;lili&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// lili&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; child2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;kevin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// kevin&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;避免引用类型的属性被所有实例共享&lt;/li&gt;
+&lt;li&gt;可以向parent传参&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;缺点：
+方法在构造函数中执行，每次创建实例都会创建一遍方法&lt;/p&gt;
+&lt;hr&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;组合继承: 融合原型链继承和构造函数&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;colors &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;green&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; age&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;Parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;age &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; age&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token class-name&quot;&gt;Child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Parent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token class-name&quot;&gt;Child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;constructor &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Child&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 修正Child.prototype，不然会是Parent&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; child1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Child&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;lili&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;child1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; child1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;age&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; child1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;colors&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;原型式继承：用object.create的模拟实现，将传入的对象作为创建的对象的原型&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token class-name&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; o&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; person &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;kevin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+friends&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;daisy&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;kelly&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; person1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;person&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; person2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;person&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;person1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; person2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// {} {}&lt;/span&gt;
+
+person1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;person1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;person2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// kevin&lt;/span&gt;
+
+person1&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;friends&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;taylor&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;person2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;friends&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// [&quot;daisy&quot;, &quot;kelly&quot;, &quot;taylor&quot;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;寄生式继承：创建一个仅用于封装继承过程的函数，该函数在内部以某种形式来做增强对象，最后返回对象&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createObj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;F&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Object&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;o&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;getName&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;kevin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[js深入之从原型到原型链]]></title><description><![CDATA[学习文章 https://github.com/mqyqingfeng/Blog/issues/2 proto QA 什么是原型   每一个JavaScript对象(null…]]></description><link>https://chinleyhuang.ink/foundamention/原型与原型链/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/原型与原型链/</guid><pubDate>Mon, 07 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;学习文章&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/2&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67&quot; alt=&quot;proto&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;QA&lt;/h3&gt;
+&lt;h4&gt;什么是原型&lt;/h4&gt;
+&lt;p&gt;  每一个JavaScript对象(null除外)在创建时就会与之关联的另外一个对象，这个对象就是所说的原型。每一个对象都会从原型“继承”属性。&lt;/p&gt;
+&lt;h4&gt;什么是原型链&lt;/h4&gt;
+&lt;p&gt;  一个JavaScript对象由相互关联的原型组成的链状结构，就是原型链。原型链通过_proto_链接起来&lt;/p&gt;
+&lt;h4&gt;constructor、_proto_、prototype的区别&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;constructor 实例原型指向构造函数&lt;/li&gt;
+&lt;li&gt;_proto_ 是实例对象指向对象原型，每一个JavaScript对象(除了null)都有的属性&lt;/li&gt;
+&lt;li&gt;prototype是构造函数指向实例对象，是函数才有的属性&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[动态规划之背包问题]]></title><description><![CDATA[背包问题 单词就是物品，字符串s就是背包，单词能否组成字符串s, 就是问物品能不能把背包装满。
+拆分时可以重复使用字典中的单词，说明就是一个完全背包。
+动态规划分析五部曲： 1.确定dp数组以及下标的含义
+dpi：字符串长度为i的话，dpi为true…]]></description><link>https://chinleyhuang.ink/leetcode/bag/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/bag/</guid><pubDate>Sun, 26 Dec 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h1&gt;背包问题&lt;/h1&gt;
+&lt;p&gt;单词就是物品，字符串s就是背包，单词能否组成字符串s, 就是问物品能不能把背包装满。
+拆分时可以重复使用字典中的单词，说明就是一个完全背包。
+动态规划分析五部曲：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.确定dp数组以及下标的含义
+dp[i]：字符串长度为i的话，dp[i]为true，表示可以拆分为一个或多个在字段中出现的单词。&lt;/li&gt;
+&lt;li&gt;2.确定递推公式
+如果确定dp[j]是true,且[i,j]这个区间的子串出现在字典里，那么dp[i]一定是true。所以递推公式是if([j,i]这个区间的子串出现在字典里&amp;#x26;&amp;#x26;dp[j]===true), 那么dp[i]是true&lt;/li&gt;
+&lt;li&gt;3.dp数组如何初始化
+从递归公式中可以看出，dp[i]的状态依靠dp[j]是否为true，dp[0]就是递归的根基，dp[0]一定要为true。
+下标非0的dp[i]初始化为false，只要没有被覆盖说明都是不分拆分一分或多个在字典中出现的单词&lt;/li&gt;
+&lt;li&gt;4.确定遍历顺序
+如果求组合数就是外层for循环遍历物品，内层for遍历背包
+如果求排列数就是外层for遍历背包，内层for循环遍历物品&lt;/li&gt;
+&lt;li&gt;5.举例推导dp数组&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;01背包&lt;/h1&gt;
+&lt;p&gt;  有n件物品和一个最多能背重量为w的背包。第i件物品的重量是weight[i]，得到的价值是value[i]，每件物品只能用一次，求解将哪些物品装进背包里物品价值总和最大&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;确定dp数组以及下标的含义，使用二位数组，即&lt;strong&gt;dp[i][j]表示从下表为[0-i]的物品里任意取，放进容量为j的背包，价值总和最大食多少&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;确定递推公式
+dp[i][j]的含义：从下标为[0-i]的物品里任意取，放进容量为j的背包，价值总和最大是多少。那么有两个方向推出来dp[i][j]&lt;/li&gt;
+&lt;li&gt;不放物品i:背包容量为j,里面不放物品i的最大价值，此时dp[i][j]就是dp[i-1][j]&lt;/li&gt;
+&lt;li&gt;放物品i: dp[i-1]j-weight[i]]为背包容量为j-weight[i]的时候不放物品i的最大价值，那么dp[i-1]j-weight[i]] + value[i]，就是背包放物品i得到的最大价值&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  所以递归公式：dp[i][j] = max(dp[i-1][j], dp[i-1]j-weight[i]]+value[i])&lt;/p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;dp数组如何初始化
+如果背包容量j为0的话，即dp[i][0]，无论是选取哪些物品，都放不进背包里，背包价值总和一定是0。
+dp[0][j], 即：i为0，存放编号0的物品的时候，各个容量的背包所能存放的最大价值。
+那么当j&amp;#x3C;weight[0]时，dp[0][j]应该是0，因为背包容量比编号0的物品重量还小。
+当j&gt;weight[0]时，dp[0][j]应该是value[0]，因为背包容量足够放编号0物品。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; weight&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    dp&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; weight&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; badweight&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; j&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    dp&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;确定遍历顺序
+先遍历物品还是先遍历背包重量， 都ok&lt;/li&gt;
+&lt;li&gt;举例推导dp数组&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function testWeightBagProblem (wight, value, size) {
+  const len = wight.length, 
+    dp = Array.from({length: len + 1}).map(
+      () =&amp;gt; Array(size + 1).fill(0)
+    );
+  
+  for(let i = 1; i &amp;lt;= len; i++) {
+    for(let j = 0; j &amp;lt;= size; j++) {
+      if(wight[i - 1] &amp;lt;= j) {
+        dp[i][j] = Math.max(
+          dp[i - 1][j], 
+          value[i - 1] + dp[i - 1][j - wight[i - 1]]
+        )
+      } else {
+        dp[i][j] = dp[i - 1][j];
+      }
+    }
+  }
+
+  return dp[len][size];
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;相关阅读&lt;/h3&gt;
+&lt;p&gt;代码随想录 &lt;a href=&quot;https://leetcode-cn.com/problems/word-break/solution/dai-ma-sui-xiang-lu-139-dan-ci-chai-fen-50a1a/&quot;&gt;https://leetcode-cn.com/problems/word-break/solution/dai-ma-sui-xiang-lu-139-dan-ci-chai-fen-50a1a/&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[JS中的树数据结构]]></title><description><![CDATA[树   树是一种被广泛应用的数据结构，例如： dom是一种树结构数据 os…]]></description><link>https://chinleyhuang.ink/leetcode/tree/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/tree/</guid><pubDate>Sun, 17 Oct 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h1&gt;树&lt;/h1&gt;
 &lt;p&gt;  树是一种被广泛应用的数据结构，例如：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;dom是一种树结构数据&lt;/li&gt;
@@ -206,15 +792,9 @@ while(cur) {
   return res.reverse();
 };&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;相关阅读&lt;/h2&gt;
-&lt;p&gt;  tree-data-structure-in-javascript： &lt;a href=&quot;https://stackfull.dev/tree-data-structure-in-javascript&quot;&gt;https://stackfull.dev/tree-data-structure-in-javascript&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[阅读笔记之登录鉴权]]></title><link>https://chinleyhuang.ink/login/auth/</link><guid isPermaLink="false">https://chinleyhuang.ink/login/auth/</guid><pubDate>Tue, 14 Sep 2021 23:46:37 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[视频直播技术原理]]></title><description><![CDATA[问题 视频直播技术原理、具体在繁星中的表现 视频直播加速 怎样录制直播视频 怎样实时上传直播视频 怎样播放直播视频 直播间的用户是如何交互]]></description><link>https://chinleyhuang.ink/fanxing/video/</link><guid isPermaLink="false">https://chinleyhuang.ink/fanxing/video/</guid><pubDate>Wed, 08 Sep 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;问题&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;视频直播技术原理、具体在繁星中的表现&lt;/li&gt;
-&lt;li&gt;视频直播加速&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;怎样录制直播视频&lt;/p&gt;
-&lt;p&gt;怎样实时上传直播视频&lt;/p&gt;
-&lt;p&gt;怎样播放直播视频&lt;/p&gt;
-&lt;p&gt;直播间的用户是如何交互&lt;/p&gt;</content:encoded></item><item><title><![CDATA[滑动算法]]></title><description><![CDATA[滑动：按照一定的方向来
+&lt;p&gt;  tree-data-structure-in-javascript： &lt;a href=&quot;https://stackfull.dev/tree-data-structure-in-javascript&quot;&gt;https://stackfull.dev/tree-data-structure-in-javascript&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[阅读笔记之登录鉴权]]></title><link>https://chinleyhuang.ink/login/auth/</link><guid isPermaLink="false">https://chinleyhuang.ink/login/auth/</guid><pubDate>Tue, 14 Sep 2021 23:46:37 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[about ssr]]></title><description><![CDATA[CSR & SSR 相关阅读 【React SSR 详解【近 1W 字】+ 2个项目实战】https://juejin.cn/post/6844904017487724557]]></description><link>https://chinleyhuang.ink/foundamention/ssr/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/ssr/</guid><pubDate>Wed, 08 Sep 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;CSR &amp;#x26; SSR&lt;/h3&gt;
+&lt;h4&gt;相关阅读&lt;/h4&gt;
+&lt;p&gt;【React SSR 详解【近 1W 字】+ 2个项目实战】&lt;a href=&quot;https://juejin.cn/post/6844904017487724557&quot;&gt;https://juejin.cn/post/6844904017487724557&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[滑动算法]]></title><description><![CDATA[滑动：按照一定的方向来
 窗口：大小不是固定的，可以不断扩张，也可以不断缩小]]></description><link>https://chinleyhuang.ink/leetcode/sliding/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/sliding/</guid><pubDate>Mon, 16 Aug 2021 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;滑动：按照一定的方向来
 窗口：大小不是固定的，可以不断扩张，也可以不断缩小&lt;/p&gt;</content:encoded></item><item><title><![CDATA[回溯]]></title><description><![CDATA[回溯涉及到的类型：组合：给定几个数字，返回所有组合， 切割：一个字符串做分割， 子集、排列、棋盘   所有的回溯法都可以抽象为一个树形结构 组合题 17. 电话号码的字母组合   给定一个仅包含数字 2-…]]></description><link>https://chinleyhuang.ink/leetcode/recall/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/recall/</guid><pubDate>Sun, 08 Aug 2021 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;  回溯涉及到的类型：组合：给定几个数字，返回所有组合， 切割：一个字符串做分割， 子集、排列、棋盘&lt;/p&gt;
 &lt;p&gt;  所有的回溯法都可以抽象为一个树形结构&lt;/p&gt;
@@ -562,14 +1142,36 @@ style-loade把css-loader转换后的结果通过追加style的方式加载到页
 一旦配置多个 Loader，执行顺序是从后往前执行的&lt;/p&gt;
 &lt;h2&gt;插件机制：增强webpack自动化构建的能力&lt;/h2&gt;
 &lt;h3&gt;常用插件&lt;/h3&gt;
-&lt;p&gt;  clean-webpack-plugin: 实现自动在打包之前清除 dist 目录（上次的打包结果）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[Babel是什么   Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。   babel…]]></description><link>https://chinleyhuang.ink/webpack/babel/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/babel/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;Babel是什么&lt;/h3&gt;
+&lt;p&gt;  clean-webpack-plugin: 实现自动在打包之前清除 dist 目录（上次的打包结果）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[按需打包 目前按需打包一般通过两种方式进行： 使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包； 使用以Babel-plugin-import为主的babel插件，实现自动按需打包 Tree shaking 实现按需打包 webpack…]]></description><link>https://chinleyhuang.ink/webpack/treeshaking/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/treeshaking/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;按需打包&lt;/h3&gt;
+&lt;p&gt;目前按需打包一般通过两种方式进行：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包；&lt;/li&gt;
+&lt;li&gt;使用以Babel-plugin-import为主的babel插件，实现自动按需打包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Tree shaking 实现按需打包&lt;/h3&gt;
+&lt;p&gt;webpack可以在package.json中设置sideEffects:false&lt;/p&gt;
+&lt;h3&gt;按需加载&lt;/h3&gt;
+&lt;p&gt;如何在webpack环境下支持代码拆分和按需加载&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过入口配置手动分割代码(entry)&lt;/li&gt;
+&lt;li&gt;动态导入支持；&lt;/li&gt;
+&lt;li&gt;通过splitchunk插件提取公共代码(公共代码分割)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;webpack对动态引入能力支持&lt;/h4&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[Babel是什么   Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。   babel…]]></description><link>https://chinleyhuang.ink/webpack/babel/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/babel/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;Babel是什么&lt;/h3&gt;
 &lt;p&gt;  Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。&lt;/p&gt;
 &lt;p&gt;  babel主要完成以下内容：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;语法转换，一般是高级语言特性的降级&lt;/li&gt;
 &lt;li&gt;polyfill特性的实现和接入&lt;/li&gt;
 &lt;li&gt;源码转换，比如JSX等&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
+&lt;/ol&gt;
+&lt;h3&gt;梳理Babel&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;@babel/core 是babel实现转换的核心，可以根据配置，进行源码的转换&lt;/li&gt;
+&lt;li&gt;@babel/cli 是babel提供的命令行&lt;/li&gt;
+&lt;li&gt;@babel/standalone 非node.js环境自动编译text/babel或text/jsx的type值的script标签， 可以在浏览器中直接执行，浏览器环境动态插入高级语言特性的脚本、在线自动解析编译非常有意义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/04/5A/Cip5yF_tojyAfvQeAAMW8bbGBAY698.png&quot; alt=&quot;babel&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu…]]></description><link>https://chinleyhuang.ink/how-browser-work/</link><guid isPermaLink="false">https://chinleyhuang.ink/how-browser-work/</guid><pubDate>Fri, 07 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;名词介绍：CPU、GPU、内存和多线程架构&lt;/h3&gt;
 &lt;p&gt;cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu可以承担更多计算任务。在三层计算机体系结构中，硬件位于底部，操作系统位于中间，应用程序则在最上层。在使用计算机时，应用程序使用操作系统提供的机制在CPU和GPU上运行。&lt;/p&gt;
