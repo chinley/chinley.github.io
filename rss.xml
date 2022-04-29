@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 18 Apr 2022 17:03:13 GMT</lastBuildDate><item><title><![CDATA[http发展史]]></title><description><![CDATA[HTTP/0.9   只允许用GET请求从服务器上获取HTML文档，并且在响应请求之后立即关闭连接 HTTP/1.0 增加HEAD、POST等新方法 增加了响应状态码，标记可能的错误原因 引入协议版本号的概念 引入了HTTP header的概念，让HTTP…]]></description><link>https://chinleyhuang.ink/http/发展史/</link><guid isPermaLink="false">https://chinleyhuang.ink/http/发展史/</guid><pubDate>Wed, 06 Apr 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;HTTP/0.9&lt;/h4&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 29 Apr 2022 03:12:26 GMT</lastBuildDate><item><title><![CDATA[http发展史]]></title><description><![CDATA[HTTP/0.9   只允许用GET请求从服务器上获取HTML文档，并且在响应请求之后立即关闭连接 HTTP/1.0 增加HEAD、POST等新方法 增加了响应状态码，标记可能的错误原因 引入协议版本号的概念 引入了HTTP header的概念，让HTTP…]]></description><link>https://chinleyhuang.ink/http/发展史/</link><guid isPermaLink="false">https://chinleyhuang.ink/http/发展史/</guid><pubDate>Wed, 06 Apr 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;HTTP/0.9&lt;/h4&gt;
 &lt;p&gt;  只允许用GET请求从服务器上获取HTML文档，并且在响应请求之后立即关闭连接&lt;/p&gt;
 &lt;h4&gt;HTTP/1.0&lt;/h4&gt;
 &lt;ul&gt;
@@ -85,6 +85,7 @@ workInProgressHook: 可以理解workInProgress树上指向的当前调度的hook
 &lt;p&gt;  &lt;img src=&quot;https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/adcbd09984f84d0d97a15df124e83c09~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
 &lt;h4&gt;hooks初始化，做了什么&lt;/h4&gt;
 &lt;h5&gt;1.mountWorkInProgressHook&lt;/h5&gt;
+&lt;p&gt;  在组件初始化时，每一次hooks执行，都会调用mountWorkInProgressHook&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mountWorkInProgressHook&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; hook&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Hook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
       memoizedState&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;// useState中 保存 state信息 ｜ useEffect 中 保存着 effect 对象 ｜ useMemo 中 保存的是缓存的值和deps ｜ useRef中保存的是ref 对象&lt;/span&gt;
@@ -164,7 +165,71 @@ workInProgressHook: 可以理解workInProgress树上指向的当前调度的hook
 &lt;ul&gt;
 &lt;li&gt;workInProgress / current 树上的memoizedState保存的是当前函数组件每个hooks形成的链表&lt;/li&gt;
 &lt;li&gt;每个hooks上的memoizedState保存当前hooks信息，不同种类的hooks的memoizedState内容不同。&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[js深入之call和apply的模拟实现]]></title><description><![CDATA[什么是call   call方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法 call改变了this的指向，指向到foo bar函数执行了 call与apply的区别 foo.call(bar, ‘kevin’, 18);
+&lt;/ul&gt;
+&lt;h5&gt;pushEffect创建effect对象，挂载updateQueue&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;pushEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;tag&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; create&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; destroy&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; deps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; effect &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    tag&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    create&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    destroy&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    deps&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    next&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; componentUpdateQueue &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currentlyRenderingFiber&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;updateQueue
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;componentUpdateQueue &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 如果是第一个 useEffect&lt;/span&gt;
+    componentUpdateQueue &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  lastEffect&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    currentlyRenderingFiber&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;updateQueue &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; componentUpdateQueue
+    componentUpdateQueue&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lastEffect &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; effect&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; effect&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;// 存在多个effect&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; lastEffect &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; componentUpdateQueue&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lastEffect&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;lastEffect &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      componentUpdateQueue&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lastEffect &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; effect&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; effect&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;// 建立循环链表&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; firstEffect &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; lastEffect&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;next&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      lastEffect&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; effect&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      effect&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;next &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; firstEffect&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      componentUpdateQueue&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lastEffect &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; effect&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; effect&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;  首先创建一个effect，判断组件如果第一次渲染，那么创建componentUpdateQueue, 就是workInProgress的updateQueue,将effect放入updateQueue中。&lt;/p&gt;
+&lt;p&gt;  假设在函数组件中这么写：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; props&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;a &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;  workInProgress.update保存形式：
+&lt;img src=&quot;https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/14ac9e04c10e45e5b93fc76d47a5fdd5~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;h5&gt;4. 初始化useMemo -&gt; mountMemo&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mountMemo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;nextCreate&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;deps&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; hook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mountWorkInProgressHook&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; nextDeps &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; deps &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; deps&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; nextValue &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;nextCreate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  hook&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;memoizedState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;nextValue&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nextDeps&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; nextValue&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;  初始化useMemo,就是创建一个hook，然后执行useMemo的第一个参数，得到需要缓存的值，然后将值和deps记录下来，赋值当前hook的memoizedState。&lt;/p&gt;
+&lt;h5&gt;5. 初始化useRef -&gt; mountRef&lt;/h5&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mountRef&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;initialValue&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; hook &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mountWorkInProgressHook&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; ref &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;current&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; initialValue&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  hook&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;memoizedState &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ref&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; ref&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;  mountRef初始化先创建一个对象，对象的current属性来保存初始化的值，最后用memoizedState保存ref&lt;/p&gt;
+&lt;h5&gt;6. summary&lt;/h5&gt;
+&lt;p&gt;  在一个函数组件第一次渲染执行上下文过程中，每个react-hooks执行，都产生一个hook对象，并形成链表结构，绑定在&lt;font color=&quot;color&quot;&gt;workInProgress的memoziedState属性上&lt;/font&gt;，react-hooks上的状态，绑定在&lt;font color=&quot;color&quot;&gt;当前hooks对象的memozedState属性上&lt;/font&gt;。对于effect副作用钩子，会绑定在workInProgress.updateQueue上，等到commit阶段，dom构建完成，再执行每个effect副作用的钩子。&lt;/p&gt;
+&lt;h4&gt;hooks更新阶段&lt;/h4&gt;
+&lt;p&gt;  对于更新阶段，说明上一次workInProgress树已经赋值给了current树。存放信息的memoizedState, 此时已经存在current树上。&lt;/p&gt;
+&lt;p&gt;  对于一次函数组件更新，当再次执行hooks函数时，从current的Hooks中找到与当前workInProgressHook,对应的currentHooks,然后复制一份currentHooks给workInProgressHook, hooks函数执行时，把最新的状态更新到workInProgressHook。&lt;/p&gt;
+&lt;p&gt;  updateWorkInProgressHook这个函数去做上面的操作&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之call和apply的模拟实现]]></title><description><![CDATA[什么是call   call方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法 call改变了this的指向，指向到foo bar函数执行了 call与apply的区别 foo.call(bar, ‘kevin’, 18);
 foo.call(bar…]]></description><link>https://chinleyhuang.ink/foundamention/call和apply/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/call和apply/</guid><pubDate>Sun, 27 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么是call&lt;/h4&gt;
 &lt;p&gt;  call方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -212,64 +277,10 @@ foo.call(bar, [‘kevin’, 18]);&lt;/p&gt;
 &lt;li&gt;mutationObserver&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;什么是事件循环&lt;/h4&gt;
-&lt;p&gt;  JavaScipt代码执行的过程中，除了依靠函数调用栈来确定函数的执行顺序外，还依靠任务队列来确定代码执行，整个执行过程称为事件循环过程。一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。任务队列又分为宏任务与微任务。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之合成事件]]></title><description><![CDATA[合成事件   合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理 浏览器事件机制   捕获阶段（父到子） -> 获取到目标元素 -> 冒泡阶段（子到父）
-  Q:若对合成事件进行阻止，原生事件是否会执行。会
-  A…]]></description><link>https://chinleyhuang.ink/foundamention/react/合成事件/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/合成事件/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;合成事件&lt;/h4&gt;
-&lt;p&gt;  合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理&lt;/p&gt;
-&lt;h4&gt;浏览器事件机制&lt;/h4&gt;
-&lt;p&gt;  捕获阶段（父到子） -&gt; 获取到目标元素 -&gt; 冒泡阶段（子到父）
-Q:若对合成事件进行阻止，原生事件是否会执行。会
-A:因为原生事件优先于合成事件执行。而合成事件处于目标阶段，它阻止的冒泡只是阻止合成的事件冒泡，但是原生事件在捕获阶段就已经执行了&lt;/p&gt;
-&lt;h4&gt;合成事件特点&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;React上注册的事件最终会绑定在根结点上(react 17是根结点，之前是在document上)，而不是组件对应的dom。&lt;/li&gt;
-&lt;li&gt;React自身实现了一套事件冒泡机制，因此e.stoppropagation无效&lt;/li&gt;
-&lt;li&gt;React通过对象池的形式管理合成事件对象的创建和销毁，减少垃圾的生成和新对象内存的分配&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4&gt;React事件机制&lt;/h4&gt;
-&lt;p&gt;  事件注册、事件存储、事件分发、事件执行（构造合成事件、批处理）&lt;/p&gt;
-&lt;h4&gt;为什么需要合成事件&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;统一浏览器的各个标准，兼容多个浏览器的事件，在底层抹平不同浏览器的差异&lt;/li&gt;
-&lt;li&gt;对合成事件中的调用的setstate进行合并，避免多次更新造成浪费&lt;/li&gt;
-&lt;li&gt;更好的实现事件管控，以便契合react自身的一些策略和优化&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[React之虚拟dom]]></title><description><![CDATA[什么虚拟dom   平时编写react时候，使用jsx语法糖，经过babel编译后会被转成一个个的createElement的方法。而createElement方法返回的描述dom节点对象就是虚拟dom。
-  虚拟dom是一种模式，是对ui…]]></description><link>https://chinleyhuang.ink/foundamention/react/虚拟dom/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/虚拟dom/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么虚拟dom&lt;/h4&gt;
-&lt;p&gt;  平时编写react时候，使用jsx语法糖，经过babel编译后会被转成一个个的createElement的方法。而createElement方法返回的描述dom节点对象就是虚拟dom。
-虚拟dom是一种模式，是对ui层的一种抽象。这样可以针对不同的运行环境使用一套相同/类似的概念和api进行映射和操作。再通过react dom等类库来进行它和真实dom之间的同步。
-ps: jsx只是react.createElement方法提供的语法糖&lt;/p&gt;
-&lt;h4&gt;为什么需要虚拟dom&lt;/h4&gt;
-&lt;p&gt;  因为之前重新渲染的方法就是重新构建dom,替换旧dom，性能消耗高。虚拟dom页会操作dom树进行渲染更新，但是只针对修改部分进行局部渲染。&lt;/p&gt;
-&lt;h4&gt;diff算法&lt;/h4&gt;
-&lt;p&gt;  diff算法做的事情就是比较新旧虚拟dom树，判断如何更高效的更新真实dom。为了优化diff的时间复杂度，react根据经验做了一些前提假设：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;webUI中dom跨层级的移动特别少，可以忽略不计。只针对同层级dom节点做比较&lt;/li&gt;
-&lt;li&gt;两个不同类型的元素会产生不同的树&lt;/li&gt;
-&lt;li&gt;开发者可以通过设置key的属性，来告知渲染哪些子元素在不同的渲染下可以保存不变&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;  在这三个前提下，对新旧虚拟dom树进行深度优先遍历，每遍历到一个节点就会对节点本身和childrens进行对比。&lt;/p&gt;
-&lt;h5&gt;节点本身diff&lt;/h5&gt;
-&lt;p&gt;  节点本身的对比分为：component和element的diff&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;component的对比：
-i. 如果是同一类型的组件，就会查看有没有调用类似shouldcomponentUpdate之类的生命周期，如果需要rerender，就继续对比props和子节点
-ii. 如果不是同一类型的组件，就直接摧毁替换&lt;/li&gt;
-&lt;li&gt;element的对比：
-i. 如果不是同一类型的元素就直接替换
-ii. 否则就对比它的属性&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h5&gt;childrens的对比&lt;/h5&gt;
-&lt;p&gt;  如果当前节点不需要直接催毁替换的话，就会对当前的新旧childrens进行对比，看是否有新增、插入、删除或移动操作。
-最后就按深度优先遍历的顺序对下一个节点迭代相同的操作&lt;/p&gt;
-&lt;h4&gt;about KEY&lt;/h4&gt;
-&lt;p&gt;  key的机制：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;如果key发生了变化，就会摧毁重新创建节点&lt;/li&gt;
-&lt;li&gt;如果key没有发生改变，而组件内容或属性有变化，就会更新组件&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[React之about fiber]]></title><description><![CDATA[为什么引入Fiber这个架构 JavaScript是单线程的并且它和ui渲染线程是互斥的。在React实现fiber架构之前，react的调度过程是基于递归的深度优先遍历。所以在调度过程中，JavaScript会长时间占据主线程，使得ui…]]></description><link>https://chinleyhuang.ink/foundamention/react/fiber/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/fiber/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;为什么引入Fiber这个架构&lt;/h4&gt;
-&lt;p&gt;JavaScript是单线程的并且它和ui渲染线程是互斥的。在React实现fiber架构之前，react的调度过程是基于递归的深度优先遍历。所以在调度过程中，JavaScript会长时间占据主线程，使得ui线程一直挂起，页面内容得不到刷新，造成一种卡顿的感觉&lt;/p&gt;
+&lt;p&gt;  JavaScipt代码执行的过程中，除了依靠函数调用栈来确定函数的执行顺序外，还依靠任务队列来确定代码执行，整个执行过程称为事件循环过程。一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。任务队列又分为宏任务与微任务。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之about fiber]]></title><description><![CDATA[为什么引入Fiber这个架构 JavaScript是单线程的并且它和ui渲染线程是互斥的。在React实现fiber架构之前，virtual dom(react.createElement，记录节点属性和children)形成的virtual dom tree，dom diff…]]></description><link>https://chinleyhuang.ink/foundamention/react/fiber/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/fiber/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;为什么引入Fiber这个架构&lt;/h4&gt;
+&lt;p&gt;JavaScript是单线程的并且它和ui渲染线程是互斥的。在React实现fiber架构之前，virtual dom(react.createElement，记录节点属性和children)形成的virtual dom tree，dom diff的过程就是对virtual dom tree进行递归的深度优先遍历，边比较边更新，因为是基于递归的，如果中断递归栈会被清空，因此整个流程不可中断。在调度过程中，JavaScript会长时间占据主线程，使得ui线程一直挂起，页面内容得不到刷新，造成一种卡顿的感觉&lt;/p&gt;
 &lt;p&gt;所以React通过 fiber架构 和 时间分片 来进行任务调度解决这个问题，目标就是将渲染任务分解成多个渲染任务，放到浏览器的每一帧里去执行，达到可中断、可恢复的效果。&lt;/p&gt;
-&lt;p&gt;具体的改动就是每个virtual dom都有一个对应的fibernode,fibernode会记录父节点、兄弟节点、子节点的索引，从而形成一个fiber tree。整个调度过程就会以fiber tree上进行深度优先遍历，并且是以迭代的方式取代递归的方式，从而实现可中断、可恢复的效果。以fiber node为最小颗粒度，将整棵树的深度优先遍历和diff过程拆到浏览器的每一帧的空闲时间里进行，从而避免因为调度长时间占据主线程而导致的ui不更新造成卡顿的问题。&lt;/p&gt;
+&lt;p&gt;具体的改动就是每个virtual dom都有一个对应的fibernode,fibernode会记录父节点、兄弟节点、子节点的索引，从而形成一个fiber tree。整个调度过程就会以fiber tree上进行深度优先遍历，并且是以迭代(while)的方式取代递归的方式，从而实现可中断、可恢复的效果。整个过程分为render阶段和commit阶段，render阶段进行建立fiber tree和dom diff，此时可中断，以便有更高优先级的任务插入。commit阶段渲染更新，整个流程不可中断。以fiber node为最小颗粒度，将整棵树的深度优先遍历和diff过程拆到浏览器的每一帧的空闲时间里进行，从而避免因为调度长时间占据主线程而导致的ui不更新造成卡顿的问题。&lt;/p&gt;
 &lt;h4&gt;React如何将任务拆解到每一帧里&lt;/h4&gt;
 &lt;h5&gt;一、React如何对齐浏览器的每一帧：&lt;/h5&gt;
 &lt;ol&gt;
@@ -336,11 +347,90 @@ shouldComponentUpdate&lt;/p&gt;
 getSnapshotBeforeUpdate
 componentDidMount
 componentDidUpdate
-componentWillUnmount&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之setState]]></title><description><![CDATA[setState是同步还是异步   react是会合并setstate的操作，避免多次渲染更新页面，造成一种异步的假象。React内部有一个全局唯一的标识(isBatchingUpdates)来表示是否进行合并更新。当生命周期函数或合成事件开始执行前，标识会设为true…]]></description><link>https://chinleyhuang.ink/foundamention/react/setState/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/setState/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;setState是同步还是异步&lt;/h4&gt;
+componentWillUnmount&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之合成事件]]></title><description><![CDATA[合成事件   合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理 浏览器事件机制   捕获阶段（父到子） -> 获取到目标元素 -> 冒泡阶段（子到父）
+  Q:若对合成事件进行阻止，原生事件是否会执行。会
+  A…]]></description><link>https://chinleyhuang.ink/foundamention/react/合成事件/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/合成事件/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;合成事件&lt;/h4&gt;
+&lt;p&gt;  合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理&lt;/p&gt;
+&lt;h4&gt;浏览器事件机制&lt;/h4&gt;
+&lt;p&gt;  捕获阶段（父到子） -&gt; 获取到目标元素 -&gt; 冒泡阶段（子到父）
+Q:若对合成事件进行阻止，原生事件是否会执行。会
+A:因为原生事件优先于合成事件执行。而合成事件处于目标阶段，它阻止的冒泡只是阻止合成的事件冒泡，但是原生事件在捕获阶段就已经执行了&lt;/p&gt;
+&lt;h4&gt;合成事件特点&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;React上注册的事件最终会绑定在根结点上(react 17是根结点，之前是在document上)，而不是组件对应的dom。&lt;/li&gt;
+&lt;li&gt;React自身实现了一套事件冒泡机制，因此e.stoppropagation无效&lt;/li&gt;
+&lt;li&gt;React通过对象池的形式管理合成事件对象的创建和销毁，减少垃圾的生成和新对象内存的分配&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;React事件机制&lt;/h4&gt;
+&lt;p&gt;  事件注册、事件存储、事件分发、事件执行（构造合成事件、批处理）&lt;/p&gt;
+&lt;h4&gt;为什么需要合成事件&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;统一浏览器的各个标准，兼容多个浏览器的事件，在底层抹平不同浏览器的差异&lt;/li&gt;
+&lt;li&gt;对合成事件中的调用的setstate进行合并，避免多次更新造成浪费&lt;/li&gt;
+&lt;li&gt;更好的实现事件管控，以便契合react自身的一些策略和优化&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[React之setState]]></title><description><![CDATA[setState是同步还是异步   react是会合并setstate的操作，避免多次渲染更新页面，造成一种异步的假象。React内部有一个全局唯一的标识(isBatchingUpdates)来表示是否进行合并更新。当生命周期函数或合成事件开始执行前，标识会设为true…]]></description><link>https://chinleyhuang.ink/foundamention/react/setState/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/setState/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;setState是同步还是异步&lt;/h4&gt;
 &lt;p&gt;  react是会合并setstate的操作，避免多次渲染更新页面，造成一种异步的假象。React内部有一个全局唯一的标识(isBatchingUpdates)来表示是否进行合并更新。当生命周期函数或合成事件开始执行前，标识会设为true，代码执行完毕之后恢复为false&lt;/p&gt;
 &lt;p&gt;  在react管控的事件里，表现为异步。不受react管控的事件，就会直接更新。故&lt;/p&gt;
 &lt;p&gt;  生命周期函数和合成事件中，表现为异步。
-原生事件和异步代码，表现为异步&lt;/p&gt;</content:encoded></item><item><title><![CDATA[防抖与节流]]></title><description><![CDATA[防抖   你尽管触发事件，但我一定在事件触发n秒后才执行，如果在一个事件触发的n秒内又触发了这个事件，就以新的事件的事件为准, n秒后才执行。总是触发完事件n…]]></description><link>https://chinleyhuang.ink/foundamention/防抖与节流/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/防抖与节流/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;防抖&lt;/h4&gt;
+原生事件和异步代码，表现为异步&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之虚拟dom]]></title><description><![CDATA[什么虚拟dom   平时编写react时候，使用jsx语法糖，经过babel编译后会被转成一个个的createElement的方法。而createElement方法返回的描述dom节点对象就是虚拟dom。
+  虚拟dom是一种模式，是对ui…]]></description><link>https://chinleyhuang.ink/foundamention/react/虚拟dom/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/虚拟dom/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么虚拟dom&lt;/h4&gt;
+&lt;p&gt;  平时编写react时候，使用jsx语法糖，经过babel编译后会被转成一个个的createElement的方法。而createElement方法返回的描述dom节点对象就是虚拟dom。
+虚拟dom是一种模式，是对ui层的一种抽象。这样可以针对不同的运行环境使用一套相同/类似的概念和api进行映射和操作。再通过react dom等类库来进行它和真实dom之间的同步。
+ps: jsx只是react.createElement方法提供的语法糖&lt;/p&gt;
+&lt;h4&gt;为什么需要虚拟dom&lt;/h4&gt;
+&lt;p&gt;  因为之前重新渲染的方法就是重新构建dom,替换旧dom，性能消耗高。虚拟dom页会操作dom树进行渲染更新，但是只针对修改部分进行局部渲染。&lt;/p&gt;
+&lt;h4&gt;diff算法&lt;/h4&gt;
+&lt;p&gt;  diff算法做的事情就是比较新旧虚拟dom树，判断如何更高效的更新真实dom。为了优化diff的时间复杂度，react根据经验做了一些前提假设：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;webUI中dom跨层级的移动特别少，可以忽略不计。只针对同层级dom节点做比较&lt;/li&gt;
+&lt;li&gt;两个不同类型的元素会产生不同的树&lt;/li&gt;
+&lt;li&gt;开发者可以通过设置key的属性，来告知渲染哪些子元素在不同的渲染下可以保存不变&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  在这三个前提下，对新旧虚拟dom树进行深度优先遍历，每遍历到一个节点就会对节点本身和childrens进行对比。&lt;/p&gt;
+&lt;h5&gt;节点本身diff&lt;/h5&gt;
+&lt;p&gt;  节点本身的对比分为：component和element的diff&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;component的对比：
+i. 如果是同一类型的组件，就会查看有没有调用类似shouldcomponentUpdate之类的生命周期，如果需要rerender，就继续对比props和子节点
+ii. 如果不是同一类型的组件，就直接摧毁替换&lt;/li&gt;
+&lt;li&gt;element的对比：
+i. 如果不是同一类型的元素就直接替换
+ii. 否则就对比它的属性&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5&gt;childrens的对比&lt;/h5&gt;
+&lt;p&gt;  如果当前节点不需要直接催毁替换的话，就会对当前的新旧childrens进行对比，看是否有新增、插入、删除或移动操作。
+最后就按深度优先遍历的顺序对下一个节点迭代相同的操作&lt;/p&gt;
+&lt;h4&gt;about KEY&lt;/h4&gt;
+&lt;p&gt;  key的机制：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果key发生了变化，就会摧毁重新创建节点&lt;/li&gt;
+&lt;li&gt;如果key没有发生改变，而组件内容或属性有变化，就会更新组件&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[js深入之闭包]]></title><description><![CDATA[什么是闭包   闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数   闭包 = 函数 + 自由变量   ECMAScript…]]></description><link>https://chinleyhuang.ink/foundamention/闭包/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/闭包/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么是闭包&lt;/h4&gt;
+&lt;hr&gt;
+&lt;p&gt;  闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数&lt;/p&gt;
+&lt;p&gt;  闭包 = 函数 + 自由变量&lt;/p&gt;
+&lt;p&gt;  ECMAScript中，闭包指的是：&lt;/p&gt;
+&lt;p&gt;从理论角度：所有的函数。因为它们都在创建的时候就将上层上下文的数据保存起来了。哪怕是简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。
+从实践角度：以下函数才算是闭包：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）&lt;/li&gt;
+&lt;li&gt;在代码中引用了自由变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;代码示例&lt;/h4&gt;
+&lt;hr&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;global scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;local scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; scope&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; f&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;f函数执行的时候，尽管checkscope的执行上下文已经从执行上下文栈中弹出，checkscopeContext被销毁了，但f函数的执行上下文维护的作用域还是记录了checkscope的活动变量
+fStack = [VO, checkscopeContext.VO, globalContext.VO]&lt;/p&gt;</content:encoded></item><item><title><![CDATA[防抖与节流]]></title><description><![CDATA[防抖   你尽管触发事件，但我一定在事件触发n秒后才执行，如果在一个事件触发的n秒内又触发了这个事件，就以新的事件的事件为准, n秒后才执行。总是触发完事件n…]]></description><link>https://chinleyhuang.ink/foundamention/防抖与节流/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/防抖与节流/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;防抖&lt;/h4&gt;
 &lt;p&gt;  你尽管触发事件，但我一定在事件触发n秒后才执行，如果在一个事件触发的n秒内又触发了这个事件，就以新的事件的事件为准, n秒后才执行。总是触发完事件n秒内不再触发事件，才执行新的事件&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;debounce&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;fun&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; delay&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; immediate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; timer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -368,32 +458,7 @@ componentWillUnmount&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Rea
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; debounced&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4&gt;节流&lt;/h4&gt;
-&lt;p&gt;  一段时间只执行一次,根据首次是否执行以及结束后是否执行，效果与实现方式都有所不同。用leading代表首次是否执行，trailing代表结束后是否再执行一次&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之闭包]]></title><description><![CDATA[什么是闭包   闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数   闭包 = 函数 + 自由变量   ECMAScript…]]></description><link>https://chinleyhuang.ink/foundamention/闭包/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/闭包/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么是闭包&lt;/h4&gt;
-&lt;hr&gt;
-&lt;p&gt;  闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数&lt;/p&gt;
-&lt;p&gt;  闭包 = 函数 + 自由变量&lt;/p&gt;
-&lt;p&gt;  ECMAScript中，闭包指的是：&lt;/p&gt;
-&lt;p&gt;从理论角度：所有的函数。因为它们都在创建的时候就将上层上下文的数据保存起来了。哪怕是简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。
-从实践角度：以下函数才算是闭包：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）&lt;/li&gt;
-&lt;li&gt;在代码中引用了自由变量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;代码示例&lt;/h4&gt;
-&lt;hr&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;global scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;local scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; scope&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; f&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;f函数执行的时候，尽管checkscope的执行上下文已经从执行上下文栈中弹出，checkscopeContext被销毁了，但f函数的执行上下文维护的作用域还是记录了checkscope的活动变量
-fStack = [VO, checkscopeContext.VO, globalContext.VO]&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之词法作用域和动态作用域]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/3 静态作用域vs动态作用域 JavaScript…]]></description><link>https://chinleyhuang.ink/foundamention/作用域/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/作用域/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
+&lt;p&gt;  一段时间只执行一次,根据首次是否执行以及结束后是否执行，效果与实现方式都有所不同。用leading代表首次是否执行，trailing代表结束后是否再执行一次&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之词法作用域和动态作用域]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/3 静态作用域vs动态作用域 JavaScript…]]></description><link>https://chinleyhuang.ink/foundamention/作用域/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/作用域/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/3&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/3&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;静态作用域vs动态作用域&lt;/h4&gt;
 &lt;p&gt;JavaScript采用词法作用域，也就是静态作用域。
@@ -406,12 +471,7 @@ fStack = [VO, checkscopeContext.VO, globalContext.VO]&lt;/p&gt;</content:encoded
 &lt;h4&gt;暂时性死区&lt;/h4&gt;
 &lt;p&gt;  在代码块内，使用let/const声明变量之前，该变量都是不可用的。本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取。只有执行到声明变量，才可以获取和使用该变量。&lt;/p&gt;
 &lt;h4&gt;什么是作用域链&lt;/h4&gt;
-&lt;p&gt;  当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级执行上下文的变量对象中查找，一直到全局上下文的变量对象，也就是全局对象。这种由多个执行上下文的变量对象构成的链表叫做作用域链。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之变量对象]]></title><description><![CDATA[当JavaScript代码执行一段可执行代码时，会创建对应执行上下文。执行上下文有三个关键部分： this的绑定 变量对象/词法环境的创建 活动对象/变量环境的创建]]></description><link>https://chinleyhuang.ink/foundamention/变量对象/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/变量对象/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;当JavaScript代码执行一段可执行代码时，会创建对应执行上下文。执行上下文有三个关键部分：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;this的绑定&lt;/li&gt;
-&lt;li&gt;变量对象/词法环境的创建&lt;/li&gt;
-&lt;li&gt;活动对象/变量环境的创建&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[js深入之继承的多种方式和优缺点]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/16 继承   原型链继承、借用构造函数、组合继承、原型式继承 继承的方式 原型链继承：child构造函数的prototype指向parent…]]></description><link>https://chinleyhuang.ink/foundamention/继承/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/继承/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
+&lt;p&gt;  当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级执行上下文的变量对象中查找，一直到全局上下文的变量对象，也就是全局对象。这种由多个执行上下文的变量对象构成的链表叫做作用域链。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之继承的多种方式和优缺点]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/16 继承   原型链继承、借用构造函数、组合继承、原型式继承 继承的方式 原型链继承：child构造函数的prototype指向parent…]]></description><link>https://chinleyhuang.ink/foundamention/继承/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/继承/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/16&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/16&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;继承&lt;/h4&gt;
 &lt;p&gt;  原型链继承、借用构造函数、组合继承、原型式继承&lt;/p&gt;
@@ -523,7 +583,12 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[js深入之从原型到原型链]]></title><description><![CDATA[学习文章 https://github.com/mqyqingfeng/Blog/issues/2 proto QA 什么是原型   每一个JavaScript对象(null…]]></description><link>https://chinleyhuang.ink/foundamention/原型与原型链/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/原型与原型链/</guid><pubDate>Mon, 07 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;学习文章&lt;/h5&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[js深入之变量对象]]></title><description><![CDATA[当JavaScript代码执行一段可执行代码时，会创建对应执行上下文。执行上下文有三个关键部分： this的绑定 变量对象/词法环境的创建 活动对象/变量环境的创建]]></description><link>https://chinleyhuang.ink/foundamention/变量对象/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/变量对象/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;当JavaScript代码执行一段可执行代码时，会创建对应执行上下文。执行上下文有三个关键部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;this的绑定&lt;/li&gt;
+&lt;li&gt;变量对象/词法环境的创建&lt;/li&gt;
+&lt;li&gt;活动对象/变量环境的创建&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[js深入之从原型到原型链]]></title><description><![CDATA[学习文章 https://github.com/mqyqingfeng/Blog/issues/2 proto QA 什么是原型   每一个JavaScript对象(null…]]></description><link>https://chinleyhuang.ink/foundamention/原型与原型链/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/原型与原型链/</guid><pubDate>Mon, 07 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;学习文章&lt;/h5&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/2&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/2&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67&quot; alt=&quot;proto&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -1160,7 +1225,22 @@ f(0, j) = 1, j &amp;lt; n&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;li&gt;@babel/cli 是babel提供的命令行&lt;/li&gt;
 &lt;li&gt;@babel/standalone 非node.js环境自动编译text/babel或text/jsx的type值的script标签， 可以在浏览器中直接执行，浏览器环境动态插入高级语言特性的脚本、在线自动解析编译非常有意义&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/04/5A/Cip5yF_tojyAfvQeAAMW8bbGBAY698.png&quot; alt=&quot;babel&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[webpack学习]]></title><description><![CDATA[webpack 模块打包工具 为什么需要webpack   1.解决浏览器兼容问题
+&lt;p&gt;&lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/04/5A/Cip5yF_tojyAfvQeAAMW8bbGBAY698.png&quot; alt=&quot;babel&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[按需打包 目前按需打包一般通过两种方式进行： 使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包； 使用以Babel-plugin-import为主的babel插件，实现自动按需打包 Tree shaking 实现按需打包 webpack…]]></description><link>https://chinleyhuang.ink/webpack/treeshaking/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/treeshaking/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;按需打包&lt;/h5&gt;
+&lt;p&gt;目前按需打包一般通过两种方式进行：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包；&lt;/li&gt;
+&lt;li&gt;使用以Babel-plugin-import为主的babel插件，实现自动按需打包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Tree shaking 实现按需打包&lt;/h5&gt;
+&lt;p&gt;webpack可以在package.json中设置sideEffects:false&lt;/p&gt;
+&lt;h5&gt;按需加载&lt;/h5&gt;
+&lt;p&gt;如何在webpack环境下支持代码拆分和按需加载&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过入口配置手动分割代码(entry)&lt;/li&gt;
+&lt;li&gt;动态导入支持；&lt;/li&gt;
+&lt;li&gt;通过splitchunk插件提取公共代码(公共代码分割)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;webpack对动态引入能力支持&lt;/h5&gt;</content:encoded></item><item><title><![CDATA[webpack学习]]></title><description><![CDATA[webpack 模块打包工具 为什么需要webpack   1.解决浏览器兼容问题
   2.将散落的模块打包到一起，解决频繁请求的问题
   3.支持将不同的资源，例如图片、字体等作为模块调用，便于维护与处理业务 模块打包   1.定义打包入口 entry, entry…]]></description><link>https://chinleyhuang.ink/webpack/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;webpack 模块打包工具&lt;/h4&gt;
 &lt;h5&gt;为什么需要webpack&lt;/h5&gt;
@@ -1180,22 +1260,7 @@ style-loade把css-loader转换后的结果通过追加style的方式加载到页
 一旦配置多个 Loader，执行顺序是从后往前执行的&lt;/p&gt;
 &lt;h5&gt;插件机制：增强webpack自动化构建的能力&lt;/h5&gt;
 &lt;h5&gt;常用插件&lt;/h5&gt;
-&lt;p&gt;  clean-webpack-plugin: 实现自动在打包之前清除 dist 目录（上次的打包结果）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[按需打包 目前按需打包一般通过两种方式进行： 使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包； 使用以Babel-plugin-import为主的babel插件，实现自动按需打包 Tree shaking 实现按需打包 webpack…]]></description><link>https://chinleyhuang.ink/webpack/treeshaking/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/treeshaking/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;按需打包&lt;/h5&gt;
-&lt;p&gt;目前按需打包一般通过两种方式进行：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包；&lt;/li&gt;
-&lt;li&gt;使用以Babel-plugin-import为主的babel插件，实现自动按需打包&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5&gt;Tree shaking 实现按需打包&lt;/h5&gt;
-&lt;p&gt;webpack可以在package.json中设置sideEffects:false&lt;/p&gt;
-&lt;h5&gt;按需加载&lt;/h5&gt;
-&lt;p&gt;如何在webpack环境下支持代码拆分和按需加载&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;通过入口配置手动分割代码(entry)&lt;/li&gt;
-&lt;li&gt;动态导入支持；&lt;/li&gt;
-&lt;li&gt;通过splitchunk插件提取公共代码(公共代码分割)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5&gt;webpack对动态引入能力支持&lt;/h5&gt;</content:encoded></item><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
+&lt;p&gt;  clean-webpack-plugin: 实现自动在打包之前清除 dist 目录（上次的打包结果）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu…]]></description><link>https://chinleyhuang.ink/how-browser-work/</link><guid isPermaLink="false">https://chinleyhuang.ink/how-browser-work/</guid><pubDate>Fri, 07 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;名词介绍：CPU、GPU、内存和多线程架构&lt;/h3&gt;
 &lt;p&gt;cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu可以承担更多计算任务。在三层计算机体系结构中，硬件位于底部，操作系统位于中间，应用程序则在最上层。在使用计算机时，应用程序使用操作系统提供的机制在CPU和GPU上运行。&lt;/p&gt;
