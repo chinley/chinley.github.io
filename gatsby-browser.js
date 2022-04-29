@@ -8,3 +8,7 @@ import "./src/style.css"
 
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"
+
+   
+import CustomLayout from "./src/components/wrapPageElement"
+// export const wrapPageElement = CustomLayout

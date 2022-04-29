@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Clock from "./clock"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`

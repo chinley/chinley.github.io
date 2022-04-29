@@ -2,13 +2,14 @@
 title: 最长回文字符串
 date: "2021-05-23T23:46:37.121Z"
 description: "算法题：最长回文字符串"
+category: "算法"
 ---
 
 ### 最长回文字符串
 
   从下标i为1开始遍历字符串str，以str[i]为中心扩展查找最长字符串
 
-  ```
+  ```js
   var find = function(start, end, s) {
     while(start >= 0 && end < s.length && s[start] === s[end] && start <= end) {
         start-=1;

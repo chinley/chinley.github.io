@@ -1,9 +1,12 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Clock from "../components/clock"
+import Bear from "../components/Bear"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -16,6 +19,7 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
+      <Clock />
       <article
         className="blog-post"
         itemScope
@@ -60,6 +64,7 @@ const BlogPostTemplate = ({ data, location }) => {
           </li>
         </ul>
       </nav>
+      <Bear />
     </Layout>
   )
 }

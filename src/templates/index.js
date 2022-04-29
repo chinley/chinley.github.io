@@ -4,11 +4,13 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Clock from "../components/clock"
+import Bear from "../components/Bear";
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = ({ data, location, pageContext }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
-
+  const { totalPage, currentPage, categories } = pageContext;
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -27,10 +29,10 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
       <Bio />
+      <Clock />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
-
           return (
             <li key={post.fields.slug}>
               <article
@@ -59,6 +61,42 @@ const BlogIndex = ({ data, location }) => {
           )
         })}
       </ol>
+      <div 
+        style={{
+        display: `flex`,
+        flexWrap: `wrap`,
+        justifyContent: `space-between`,
+        listStyle: `none`,
+        padding: 0,
+      }}>
+        {currentPage - 1 > 0 && (
+          <Link
+            to={'/' + (currentPage - 1 === 1 ? '' : currentPage - 1)}
+            rel="prev"
+          >
+            ← 上一页
+          </Link>
+        )}
+        {currentPage + 1 <= totalPage && (
+          <Link to={'/' + (currentPage + 1)} rel="next">
+            下一页 →
+          </Link>
+        )}
+      </div>
+      <div className="cate-box" style={{
+          position: 'absolute',
+          right: '10rem',
+          top: '17rem',
+          borderLeft: '1px solid #d94e67',
+          padding: '5px 0 5px 20px'
+      }}>
+        { categories && categories.map(item => <div style={{ marginBottom: '20px', textDecoration: 'none'}}>
+          <Link to={`/categories/${item}`} itemProp="url" style={{ textDecoration: 'none', color: '#4f5969'}}>
+            <span itemProp="headline">{item}</span>
+          </Link>
+        </div>) }
+      </div>
+      <Bear />
     </Layout>
   )
 }
@@ -66,13 +104,17 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  query BlogIndexQuery($skip: Int!, $limit: Int!) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       nodes {
         excerpt
         fields {
@@ -82,6 +124,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          category
         }
       }
     }

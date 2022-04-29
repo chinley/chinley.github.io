@@ -3,7 +3,7 @@ module.exports = {
     title: `chinley's blog`,
     author: {
       name: `chinley`,
-      summary: `前端开发工程师，广州`,
+      summary: `猴子摘玉米🌽`,
     },
     description: `百事可乐`,
     siteUrl: `https://chinleyhuang.ink`,
@@ -115,7 +115,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/flower.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-react-helmet`,

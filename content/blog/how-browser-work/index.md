@@ -3,6 +3,7 @@ title: 现代浏览器架构
 date: "2021-05-07T23:46:37.121Z"
 updatedAt: "2021-05-16T23:46:37.121Z"
 description: "学习笔记: 深入了解现代浏览器架构--以chrome为例"
+category: "杂记"
 ---
 
 ### 名词介绍：CPU、GPU、内存和多线程架构

@@ -1,0 +1,73 @@
+.bear {
+  width: 100px;
+  position: fixed;
+  bottom: 5rem;
+  right: 6rem;
+}
+
+.giraf-container {
+  width: 100px;
+  position: fixed;
+  bottom: 80px;
+  right: 100px;
+  
+}
+.g-yellow,.g-yellow-2{
+  fill:#fae6b7;
+}
+.g-yellow,.cheek,.g-white,.g-lines,.g-white-2,.g-cheek{
+  fill-rule:evenodd;
+}
+.cheek{ 
+  fill:#e1bcb3;
+}
+.g-white{
+  fill:#fff;
+}
+
+.g-lines{
+  fill:#544f4d;
+}
+.g-white-2{
+  fill:#d8d7d7;
+}
+.g-cheek{
+  fill:#f0cbd9;
+}
+
+.giraf__head {
+  transform-origin: 50% 50%;
+  animation: headWave 4.5s ease infinite alternate;
+}
+
+.giraf__ear {
+  animation: earwiggle 3s ease infinite ;
+  transform-origin: 76% 20%;
+}
+
+@keyframes headWave {
+  50% {transform:rotate(8deg)}
+  100% {}
+}
+
+@keyframes earwiggle {
+  30%, 100% {
+  }
+  1% {
+    transform:rotate(0deg)
+  }
+  10% {
+     transform:rotate(-20deg)
+  }
+  20% {
+    transform:rotate(0deg)
+  }
+  30% {
+    transform:rotate(-20deg)
+  }
+}
+
+@keyframes wave {
+  50% {transform:rotate(8deg)}
+  100% {}
+}

@@ -3,9 +3,12 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
+  const categories = new Set();
 
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPost = path.resolve(`./src/templates/blog-post.js`);
+  const home = path.resolve(`./src/templates/index.js`);
+  const category = path.resolve(`./src/templates/category.js`);
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -19,6 +22,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             id
             fields {
               slug
+            }
+            frontmatter {
+              category
             }
           }
         }
@@ -54,8 +60,52 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           nextPostId,
         },
       })
-    })
+      if(post.frontmatter.category) {
+        categories.add(post.frontmatter.category);
+      }
+    });
   }
+
+  const postsPerpage = 8;
+  const numsPages = Math.ceil(posts.length / postsPerpage);
+  Array.from({ length: numsPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/` : `/${i + 1}`,
+      component: home,
+      context: {
+        currentPage: i+1,
+        totalPage: numsPages,
+        limit: postsPerpage,
+        skip: i * postsPerpage,
+        categories: Array.from(categories)
+      },
+    })
+  });
+
+  categories.forEach(item => {
+    const postsPerpage = 8;
+    const curCatePosts = [];
+    posts.forEach(post => {
+      if(post.frontmatter.category && post.frontmatter.category === item) {
+        curCatePosts.push(post);
+      }
+    });
+    const numsPages = Math.ceil(curCatePosts.length / postsPerpage);
+    Array.from({ length: numsPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/categories/${item}` : `/categories/${item}/${i + 1}`,
+        component: category,
+        context: {
+          currentPage: i+1,
+          totalPage: numsPages,
+          category: item,
+          limit: postsPerpage,
+          skip: i * postsPerpage,
+          categories: Array.from(categories)
+         }
+      })
+    });
+  });
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -106,6 +156,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      category: String
     }
 
     type Fields {
