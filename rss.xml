@@ -1,5 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 29 Apr 2022 03:12:26 GMT</lastBuildDate><item><title><![CDATA[http发展史]]></title><description><![CDATA[HTTP/0.9   只允许用GET请求从服务器上获取HTML文档，并且在响应请求之后立即关闭连接 HTTP/1.0 增加HEAD、POST等新方法 增加了响应状态码，标记可能的错误原因 引入协议版本号的概念 引入了HTTP header的概念，让HTTP…]]></description><link>https://chinleyhuang.ink/http/发展史/</link><guid isPermaLink="false">https://chinleyhuang.ink/http/发展史/</guid><pubDate>Wed, 06 Apr 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;HTTP/0.9&lt;/h4&gt;
-&lt;p&gt;  只允许用GET请求从服务器上获取HTML文档，并且在响应请求之后立即关闭连接&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 16 May 2022 17:04:24 GMT</lastBuildDate><item><title><![CDATA[透视HTTP协议]]></title><description><![CDATA[01｜ HTTP的前世今生 史前时期   20世纪70年代，基于对ARPA网的实践和思考，研究人员发明出著名的TCP/IP协议，并在80年代中期进入UNIX系统内核 创世纪   提出超文档链接系统的构想，确立三项关键技术：   URI…]]></description><link>https://chinleyhuang.ink/http/发展史/</link><guid isPermaLink="false">https://chinleyhuang.ink/http/发展史/</guid><pubDate>Wed, 06 Apr 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h2&gt;01｜ HTTP的前世今生&lt;/h2&gt;
+&lt;h4&gt;史前时期&lt;/h4&gt;
+&lt;p&gt;  20世纪70年代，基于对ARPA网的实践和思考，研究人员发明出著名的TCP/IP协议，并在80年代中期进入UNIX系统内核&lt;/p&gt;
+&lt;h4&gt;创世纪&lt;/h4&gt;
+&lt;p&gt;  提出&lt;strong&gt;超文档链接&lt;/strong&gt;系统的构想，确立三项关键技术：&lt;/p&gt;
+&lt;p&gt;  URI: 统一资源标识符，作为互联网上资源的唯一身份；&lt;/p&gt;
+&lt;p&gt;  HTML: 超文本标记语言，描述超文本文档；&lt;/p&gt;
+&lt;p&gt;  HTTP: 超文本传输协议，用于传输超文本&lt;/p&gt;
+&lt;h4&gt;HTTP/0.9&lt;/h4&gt;
+&lt;p&gt;  只允许用&lt;strong&gt;GET请求&lt;/strong&gt;从服务器上获取HTML文档，并且在响应请求之后立即关闭连接&lt;/p&gt;
 &lt;h4&gt;HTTP/1.0&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;增加HEAD、POST等新方法&lt;/li&gt;
@@ -9,6 +17,7 @@
 &lt;li&gt;传输的数据不再仅限于文本&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;HTTP/1.1&lt;/h4&gt;
+&lt;p&gt; 正式的标准，所有浏览器、服务器、网关、代理等，只要用到HTTP协议，就必须严格遵守这个标准。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;增加PUT、DELETE等新方法&lt;/li&gt;
 &lt;li&gt;增加缓存管理和控制&lt;/li&gt;
@@ -19,26 +28,140 @@
 &lt;h4&gt;HTTP/2 基于Google的SPDY协议&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;二进制协议，不再是纯文本；&lt;/li&gt;
-&lt;li&gt;可发起多个请求&lt;/li&gt;
+&lt;li&gt;可发起多个请求，废弃1.1里的管道&lt;/li&gt;
 &lt;li&gt;使用专用算法压缩头部，减少数据传输量&lt;/li&gt;
 &lt;li&gt;允许服务器主动向客户端推送数据&lt;/li&gt;
 &lt;li&gt;增加安全性&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;HTTP/3 基于Google的QUIC协议&lt;/h4&gt;
+&lt;h4&gt;HTTP/3&lt;/h4&gt;
+&lt;p&gt;基于Google的QUIC协议，目前处于标准化制定阶段&lt;/p&gt;
+&lt;h2&gt;02 | HTTP是什么？HTTP又不是什么？&lt;/h2&gt;
 &lt;h4&gt;HTTP是什么&lt;/h4&gt;
 &lt;p&gt;  超文本传输协议。
 首先HTTP是一个用在计算机世界里的协议，使用计算机能够理解的语言确立一种计算机之间交流通信的规范，以及相关的各种控制和错误处理方式。&lt;/p&gt;
 &lt;p&gt;  HTTP协议是一个双向协议。数据在A和B之间双向流动。举例来说，浏览器就是请求方A,网易、新浪这些网站就是应答方B，双方约定HTTP协议来通信，于是浏览器把一些数据发送给网站、网站再把一些数据发回给浏览器。
 数据虽然在A和B之间传输，但并没有限制A和B两个角色，允许中间有“中转”&lt;/p&gt;
 &lt;p&gt;  A&amp;#x3C;&gt;B变成A&amp;#x3C;&gt;X&amp;#x3C;&gt;Y&amp;#x3C;&gt;B,只要不打扰基本的数据传输，就可以添加任意功能，例如安全认证、数据压缩、编码转换等。因此HTTP是一个在计算机世界里专门用来在两点之前传输数据的约定和规范。&lt;/p&gt;
-&lt;p&gt;  图片、视频、音频、压缩包都可以是“文本”。而“超文本”，是文字、图片、视频、音频等的混合体，最关键是含有”超链接“，能从一个”超文本“跳跃到另一个”超文本“，形成复杂的非线性、网状的结构关系。“超文本”最熟悉的就是HTML,本身只是纯文字文件，但内部用很多标签定义了对图片、音频、视频等的连接，再经过浏览器的解释，呈现一个具有视听信息的页面。&lt;/p&gt;
-&lt;p&gt;  HTTP是一个在计算机世界里专门在两点之间传输文字、图片、音频、视频等超文本数据的约定和规范。&lt;/p&gt;
+&lt;p&gt;  图片、视频、音频、压缩包都可以是”文本”。而”超文本”，是文字、图片、视频、音频等的混合体，最关键是含有”超链接”，能从一个”超文本”跳跃到另一个”超文本”，形成复杂的非线性、网状的结构关系。“超文本”最熟悉的就是HTML,本身只是纯文字文件，但内部用很多标签定义了对图片、音频、视频等的连接，再经过浏览器的解释，呈现一个具有视听信息的页面。&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;&lt;font color=&apos;red&apos;&gt;HTTP是一个在计算机世界里专门在两点之间传输文字、图片、音频、视频等超文本数据的约定和规范。&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;HTTP 是一个用在计算机世界里的协议，它确立了一种计算机之间交流通信的规范，以及相关的各种控制和错误处理方式。- HTTP 专门用来在两点之间传输数据，不能用于广播、寻址或路由。&lt;/li&gt;
+&lt;li&gt;HTTP 是一个用在计算机世界里的协议，它确立了一种计算机之间交流通信的规范，以及相关的各种控制和错误处理方式。&lt;/li&gt;
+&lt;li&gt;HTTP 专门用来在两点之间传输数据，不能用于广播、寻址或路由。&lt;/li&gt;
 &lt;li&gt;HTTP 传输的是文字、图片、音频、视频等超文本数据。&lt;/li&gt;
 &lt;li&gt;HTTP 是构建互联网的重要基础技术，它没有实体，依赖许多其他的技术来实现，但同时许多技术也都依赖于它。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;https://static001.geekbang.org/resource/image/51/64/5102fc33d04b59b36971a5e487779864.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react hooks]]></title><description><![CDATA[react hooks 相关阅读 「react进阶」一文吃透react-hooks原理 https://juejin.cn/post/6944863057000529933 为什么需要react hooks 在react hooks…]]></description><link>https://chinleyhuang.ink/foundamention/react/hooks相关/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/hooks相关/</guid><pubDate>Thu, 31 Mar 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;react hooks&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://static001.geekbang.org/resource/image/51/64/5102fc33d04b59b36971a5e487779864.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;03 | HTTP世界全览（上）：与HTTP相关的各种概念&lt;/h2&gt;
+&lt;h4&gt;网络世界&lt;/h4&gt;
+&lt;p&gt;通常说的”上网“实际访问的只是互联网的子集的，&lt;strong&gt;&lt;font color=&apos;red&apos;&gt;万维网&lt;/font&gt;&lt;/strong&gt;，它基于http协议，传输HTML等超文本资源，能力也被限制在HTTP协议之内。&lt;/p&gt;
+&lt;p&gt;互联网上还有许多万维网之外的资源，例如常用的电子邮件、BT、Magnet点对点下载、SSH安全登录等，它们需要用各自专用协议来访问。&lt;/p&gt;
+&lt;h4&gt;浏览器&lt;/h4&gt;
+&lt;p&gt;HTTP协议中的请求方&lt;/p&gt;
+&lt;h4&gt;Web服务器&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;硬件&lt;/strong&gt;含义就是物理形式或“云”形式的机器。在大多数情况下它可能不是一台服务器，而是利用方向代理、负载均衡等技术组成的庞大集群。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;软件&lt;/strong&gt;就是提供Web服务的应用程序，通常运行在硬件含义的服务器上。利用强大的硬件能力响应海量的客户端HTTP请求，处理磁盘上的网页、图片等静态文件，或者把请求转发给Tomcat、Node.js等业务应用。&lt;/p&gt;
+&lt;p&gt;Web服务器一般有Apache、Nginx&lt;/p&gt;
+&lt;h4&gt;CDN&lt;/h4&gt;
+&lt;p&gt;浏览器通常不会直接连到服务器，中间会经过一个重要角色就是CDN。&lt;/p&gt;
+&lt;p&gt;CDN, Content Deliverty Network, 内容分发网络。它应用了HTTP协议里的缓存和代理技术，代替原站响应客户端的请求。&lt;/p&gt;
+&lt;p&gt;除了基本的网络加速外，还提供负载均衡、安全防护、边缘计算、跨运营商网络等功能，能成倍地“放大”原站服务器的服务能力。&lt;/p&gt;
+&lt;h4&gt;WebService&lt;/h4&gt;
+&lt;p&gt;Web Service是一种由W3C定义的应用服务开发规范，使用client-server主从架构，通常使用WSDL定义服务接口，使用HTTP协议传输XML或SOAP消息。基于Web(HTTP)的服务架构技术&lt;/p&gt;
+&lt;h2&gt;03 | HTTP世界全览（下）：与HTTP相关的各种协议&lt;/h2&gt;
+&lt;h4&gt;TCP/IP&lt;/h4&gt;
+&lt;p&gt;TCP/IP协议实际上是一系列网络通信协议的统称，其中最核心的两个协议是&lt;strong&gt;TCP和IP&lt;/strong&gt;, 其他还有UDP、ICMP、ARP等，共同构成一个复杂但有层次的协议栈。&lt;/p&gt;
+&lt;p&gt;这个协议栈有四层，从上到下是应用层-〉传输层-〉网际层-〉链接层。
+IP协议主要目的是解决&lt;strong&gt;寻址和路由问题&lt;/strong&gt;，以及如何在两点间传送数据包。&lt;/p&gt;
+&lt;p&gt;TCP是传输控制协议，它位于IP协议之上，基于IP协议提供可靠的、字节流形式的通信，是HTTP协议得以实现的基础。&lt;/p&gt;
+&lt;p&gt;可靠是指保证数据不丢失，“字节流”保证数据完整。&lt;/p&gt;
+&lt;h4&gt;DNS&lt;/h4&gt;
+&lt;p&gt;DNS(Domain Name System), 域名系统。域名解析，域名转换到真实IP。&lt;/p&gt;
+&lt;h4&gt;URI/URL&lt;/h4&gt;
+&lt;p&gt;DNS和IP地址只是标记了互联网上的主机，但主机上管理了一大堆文档，要如何准确找出是哪一个呢？&lt;/p&gt;
+&lt;p&gt;所以就出现URI(Uniform Resource Identifier),统一资源标识符，使用它能够唯一地标记互联网上的资源。&lt;/p&gt;
+&lt;p&gt;URL(Uniform Resource Locator)，统一资源定位符，就是俗称的“网址”，它实际上是URI的一个子集。&lt;/p&gt;
+&lt;p&gt;URI主要有三个基本的部分构成：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;协议名：即访问该资源应当使用的协议&lt;/li&gt;
+&lt;li&gt;主机名：互联网上主机的标记，域名或者ip地址&lt;/li&gt;
+&lt;li&gt;路径：资源在主机上的位置，使用“/”分割多级目录。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;HTTPS&lt;/h4&gt;
+&lt;p&gt;HTTP, &lt;strong&gt;HTTP over SSL/TLS&lt;/strong&gt;, 运行在SSL/TLS协议上的HTTP。
+SSL/TLS是一个负责加密通信的安全协议，建立在TCP/IP。HTTPS相当于HTTP+SSL/TLS+TCP/IP。&lt;/p&gt;
+&lt;p&gt;SSL使用了许多密码学先进的研究成功，综合了对称加密、非对称加密、摘要算法、数字签名、数字证书等技术。&lt;/p&gt;
+&lt;h4&gt;代理&lt;/h4&gt;
+&lt;p&gt;代理常见的种类有：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;匿名代理：完全隐匿了被代理的机器，外界看到的只是代理服务器。&lt;/li&gt;
+&lt;li&gt;透明代理：在传输过程中是“透明开放”的，外界即知道代理，也知道客户端&lt;/li&gt;
+&lt;li&gt;正向代理：靠近客户端，代表客户端向服务器发送请求；&lt;/li&gt;
+&lt;li&gt;反向代理：靠近服务器端，代表服务端响应客户端的请求；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;代理在传输过程中插入一个“中间层”，可以在这个环节做很多事情：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;负载均衡: 把访问请求均匀分散到多台机器，实现访问集群化&lt;/li&gt;
+&lt;li&gt;内容缓存：暂存上下行的数据，减轻后端的压力&lt;/li&gt;
+&lt;li&gt;安全防护：隐匿IP,使用WAF等工具抵御网络攻击，保护被代理的机器、&lt;/li&gt;
+&lt;li&gt;数据处理：提供压缩、加密等额外功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;正向代理 vs 反向代理
+正向代理：为了从目标服务器获得内容，客户端从代理服务器发送一个请求并制定目标，代理服务器向目标服务器转交请求并将获得的内容返回客户端。like 科学上网
+&lt;strong&gt;“代理服务器”代理了客户端，去和目标服务器进行交互&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;反向代理：&lt;strong&gt;代理服务器代理了目标服务器，去和客户端交互&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;05 | 常说的“四层”和“七层”到底是什么？“五层”“六层”哪去了？&lt;/h2&gt;
+&lt;h4&gt;TCP/IP网络分层模型&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;https://static001.geekbang.org/resource/image/2b/03/2b8fee82b58cc8da88c74a33f2146703.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;p&gt;第一层是&lt;strong&gt;链接层&lt;/strong&gt;，负责在以太网、wifi这样的底层网络上发送原始数据包，工作在网卡这个层次，使用mac地址来标记网络上的设备，有时候也叫mac层。&lt;/p&gt;
+&lt;p&gt;第二层是&lt;strong&gt;网际层&lt;/strong&gt;或者&lt;strong&gt;网络互联层&lt;/strong&gt;。IP协议就在这一层，IP协议定义了IP地址的概念，所以可以在链接层的基础上，用IP地址取代MAC地址，用IP地址取代MAC地址，把许多局域网、广域网连接成一个虚拟的巨大网络。&lt;/p&gt;
+&lt;p&gt;第三层是&lt;strong&gt;传输层&lt;/strong&gt;，这个层的协议职责是保证数据在IP地址标记的两点之间可靠地传输，是TCP、UDP协议工作的层次。&lt;/p&gt;
+&lt;p&gt;TCP是有状态的协议，需要先与对方建立连接然后才能发送数据，而且保证数据不丢失不重复。&lt;/p&gt;
+&lt;p&gt;UDP是无状态的，不用建立连接就可以发送任意数据，但不保证数据一定会发到对方。&lt;/p&gt;
+&lt;p&gt;两个协议的另一个重要区别在于数据的形式，TCP数据的连续的字节流，有先后顺序。UDP则是分散的小数据包，顺序发，乱序收。&lt;/p&gt;
+&lt;p&gt;第四层是&lt;strong&gt;应用层&lt;/strong&gt;，有各种面向具体应用的协议，like Telnet、SSH、FTP、HTTP&lt;/p&gt;
+&lt;p&gt;MAC层的传输单位是帧，IP层传输单位是包，TCP传输单位是段，HTTP的传输单位是消息或报文。&lt;/p&gt;
+&lt;h4&gt;OSI网络分层模型&lt;/h4&gt;
+&lt;p&gt;OSI(Open System Interconnection Reference Model)，&lt;strong&gt;开放式系统互联通信参考&lt;/strong&gt;。 TCP/IP发明于1970年代，设计出一个新的网络分层模型，想用这个新框架来统一既存的各种网络协议。
+&lt;img src=&quot;https://static001.geekbang.org/resource/image/3a/dc/3abcf1462621ff86758a8d9571c07cdc.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;p&gt;OSI模型分成了七层：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;第一层：物理层，网络的物理形式，例如电缆、光纤、网卡等&lt;/li&gt;
+&lt;li&gt;第二层：数据链路层，基本相当于TCP/IP的链路层&lt;/li&gt;
+&lt;li&gt;第三层：网络层，相当于TCP/IP的网际层&lt;/li&gt;
+&lt;li&gt;第四层：传输层，相当于TCP/IP的传输层&lt;/li&gt;
+&lt;li&gt;第五层：会话层，维护网络中的连接状态，即保持会画和同步；&lt;/li&gt;
+&lt;li&gt;第六层：表示层，把数据转换为合适、可理解的语法和语义&lt;/li&gt;
+&lt;li&gt;第七层：应用层，面向具体的应用传输协议，like HTTP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第五六七层统一对应到TCP/IP的应用层&lt;/p&gt;
+&lt;p&gt;二层转发：二层指数据链路层，工作在二层的设备，通过查找到目标MAC地址，进行数据转发
+三层路由：三层是指网络层，工作在三层的设备，通过解析数据包头信息，找到目标IP地址，转发数据
+CDN、DNS都是处于应用层&lt;/p&gt;
+&lt;h2&gt;06 | 域名里有哪些门道？&lt;/h2&gt;
+&lt;p&gt;域名解析：IP地址必须转换成MAC地址才能访问主机，域名也必须转换成IP地址&lt;/p&gt;
+&lt;p&gt;DNS核心系统是一个三层的树状、分布式服务，基本对应域名的结构：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;根域名服务器：管理顶级域名服务器，返回com、net、cn等顶级域名服务器IP地址&lt;/li&gt;
+&lt;li&gt;顶级域名服务器：管理各自域名下的权威域名服务器，比如com顶级域名服务器可以返回apple.com域名服务器的IP地址&lt;/li&gt;
+&lt;li&gt;权威域名服务器：管理自己域名下主机的IP地址，比如apple.com权威域名服务器可以返回www.apple.com的IP地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;假如要访问www.apple.com，会经历下面三次查询&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;访问根域名服务器，它会告诉你com顶级域名服务器的地址&lt;/li&gt;
+&lt;li&gt;访问com顶级域名服务器，再告诉你apple.com域名服务器的地址&lt;/li&gt;
+&lt;li&gt;最后访问apple.com域名服务器，得到www.apple.com的地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;为了减轻域名解析的压力，会使用&lt;strong&gt;缓存&lt;/strong&gt;来解决，有两种方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;公司、网络运行商建立自己的DNS服务器，作为用户DNS查询的代理，代替用户访问核心DNS系统。可以缓存之前的查询结果，如果已经有记录，就无须再向根服务器发起查询，直接返回对应的IP地址&lt;/li&gt;
+&lt;li&gt;操作系统里也会对DNS解析结果做缓存，如果之前访问过www.apple.com，那么下一次在浏览器里再输入这个网址就不会再跑到DNS访问，直接在操作系统拿到IP地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;基于域名的负载均衡&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;因为域名解析可以返回多个IP地址，所以一个域名可以对应多台主机，客户端收到多个IP地址后，就可以使用轮询算法依次向服务器发起请求，实现负载均衡&lt;/li&gt;
+&lt;li&gt;域名解析可以配置内部的策略，返回离客户端最近的主机，或者返回当前服务质量最好的主机，在DNS端把请求分发到不同服务器，实现负载均衡&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;DNS解析过程：浏览器DNS缓存 -&gt; 操作系统缓存 -&gt; hosts文件 -&gt; 非权威域名服务器 -&gt; 根域名服务器 -&gt; 顶级域名服务器 -&gt; 权威域名服务器&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[react hooks]]></title><description><![CDATA[react hooks 相关阅读 「react进阶」一文吃透react-hooks原理 https://juejin.cn/post/6944863057000529933 为什么需要react hooks 在react hooks…]]></description><link>https://chinleyhuang.ink/foundamention/react/hooks相关/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/hooks相关/</guid><pubDate>Thu, 31 Mar 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;react hooks&lt;/h4&gt;
 &lt;h6&gt;相关阅读&lt;/h6&gt;
 &lt;p&gt;「react进阶」一文吃透react-hooks原理&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/6944863057000529933&quot;&gt;https://juejin.cn/post/6944863057000529933&lt;/a&gt;&lt;/p&gt;
@@ -277,7 +400,32 @@ foo.call(bar, [‘kevin’, 18]);&lt;/p&gt;
 &lt;li&gt;mutationObserver&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4&gt;什么是事件循环&lt;/h4&gt;
-&lt;p&gt;  JavaScipt代码执行的过程中，除了依靠函数调用栈来确定函数的执行顺序外，还依靠任务队列来确定代码执行，整个执行过程称为事件循环过程。一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。任务队列又分为宏任务与微任务。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之about fiber]]></title><description><![CDATA[为什么引入Fiber这个架构 JavaScript是单线程的并且它和ui渲染线程是互斥的。在React实现fiber架构之前，virtual dom(react.createElement，记录节点属性和children)形成的virtual dom tree，dom diff…]]></description><link>https://chinleyhuang.ink/foundamention/react/fiber/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/fiber/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;为什么引入Fiber这个架构&lt;/h4&gt;
+&lt;p&gt;  JavaScipt代码执行的过程中，除了依靠函数调用栈来确定函数的执行顺序外，还依靠任务队列来确定代码执行，整个执行过程称为事件循环过程。一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。任务队列又分为宏任务与微任务。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之合成事件]]></title><description><![CDATA[合成事件   合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理 浏览器事件机制   捕获阶段（父到子） -> 获取到目标元素 -> 冒泡阶段（子到父）
+  Q:若对合成事件进行阻止，原生事件是否会执行。会
+  A…]]></description><link>https://chinleyhuang.ink/foundamention/react/合成事件/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/合成事件/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;合成事件&lt;/h4&gt;
+&lt;p&gt;  合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理&lt;/p&gt;
+&lt;h4&gt;浏览器事件机制&lt;/h4&gt;
+&lt;p&gt;  捕获阶段（父到子） -&gt; 获取到目标元素 -&gt; 冒泡阶段（子到父）
+Q:若对合成事件进行阻止，原生事件是否会执行。会
+A:因为原生事件优先于合成事件执行。而合成事件处于目标阶段，它阻止的冒泡只是阻止合成的事件冒泡，但是原生事件在捕获阶段就已经执行了&lt;/p&gt;
+&lt;h4&gt;合成事件特点&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;React上注册的事件最终会绑定在根结点上(react 17是根结点，之前是在document上)，而不是组件对应的dom。&lt;/li&gt;
+&lt;li&gt;React自身实现了一套事件冒泡机制，因此e.stoppropagation无效&lt;/li&gt;
+&lt;li&gt;React通过对象池的形式管理合成事件对象的创建和销毁，减少垃圾的生成和新对象内存的分配&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;React事件机制&lt;/h4&gt;
+&lt;p&gt;  事件注册、事件存储、事件分发、事件执行（构造合成事件、批处理）&lt;/p&gt;
+&lt;h4&gt;为什么需要合成事件&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;统一浏览器的各个标准，兼容多个浏览器的事件，在底层抹平不同浏览器的差异&lt;/li&gt;
+&lt;li&gt;对合成事件中的调用的setstate进行合并，避免多次更新造成浪费&lt;/li&gt;
+&lt;li&gt;更好的实现事件管控，以便契合react自身的一些策略和优化&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[React之setState]]></title><description><![CDATA[setState是同步还是异步   react是会合并setstate的操作，避免多次渲染更新页面，造成一种异步的假象。React内部有一个全局唯一的标识(isBatchingUpdates)来表示是否进行合并更新。当生命周期函数或合成事件开始执行前，标识会设为true…]]></description><link>https://chinleyhuang.ink/foundamention/react/setState/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/setState/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;setState是同步还是异步&lt;/h4&gt;
+&lt;p&gt;  react是会合并setstate的操作，避免多次渲染更新页面，造成一种异步的假象。React内部有一个全局唯一的标识(isBatchingUpdates)来表示是否进行合并更新。当生命周期函数或合成事件开始执行前，标识会设为true，代码执行完毕之后恢复为false&lt;/p&gt;
+&lt;p&gt;  在react管控的事件里，表现为异步。不受react管控的事件，就会直接更新。故&lt;/p&gt;
+&lt;p&gt;  生命周期函数和合成事件中，表现为异步。
+原生事件和异步代码，表现为异步&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之about fiber]]></title><description><![CDATA[为什么引入Fiber这个架构 JavaScript是单线程的并且它和ui渲染线程是互斥的。在React实现fiber架构之前，virtual dom(react.createElement，记录节点属性和children)形成的virtual dom tree，dom diff…]]></description><link>https://chinleyhuang.ink/foundamention/react/fiber/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/fiber/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;为什么引入Fiber这个架构&lt;/h4&gt;
 &lt;p&gt;JavaScript是单线程的并且它和ui渲染线程是互斥的。在React实现fiber架构之前，virtual dom(react.createElement，记录节点属性和children)形成的virtual dom tree，dom diff的过程就是对virtual dom tree进行递归的深度优先遍历，边比较边更新，因为是基于递归的，如果中断递归栈会被清空，因此整个流程不可中断。在调度过程中，JavaScript会长时间占据主线程，使得ui线程一直挂起，页面内容得不到刷新，造成一种卡顿的感觉&lt;/p&gt;
 &lt;p&gt;所以React通过 fiber架构 和 时间分片 来进行任务调度解决这个问题，目标就是将渲染任务分解成多个渲染任务，放到浏览器的每一帧里去执行，达到可中断、可恢复的效果。&lt;/p&gt;
 &lt;p&gt;具体的改动就是每个virtual dom都有一个对应的fibernode,fibernode会记录父节点、兄弟节点、子节点的索引，从而形成一个fiber tree。整个调度过程就会以fiber tree上进行深度优先遍历，并且是以迭代(while)的方式取代递归的方式，从而实现可中断、可恢复的效果。整个过程分为render阶段和commit阶段，render阶段进行建立fiber tree和dom diff，此时可中断，以便有更高优先级的任务插入。commit阶段渲染更新，整个流程不可中断。以fiber node为最小颗粒度，将整棵树的深度优先遍历和diff过程拆到浏览器的每一帧的空闲时间里进行，从而避免因为调度长时间占据主线程而导致的ui不更新造成卡顿的问题。&lt;/p&gt;
@@ -347,32 +495,7 @@ shouldComponentUpdate&lt;/p&gt;
 getSnapshotBeforeUpdate
 componentDidMount
 componentDidUpdate
-componentWillUnmount&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之合成事件]]></title><description><![CDATA[合成事件   合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理 浏览器事件机制   捕获阶段（父到子） -> 获取到目标元素 -> 冒泡阶段（子到父）
-  Q:若对合成事件进行阻止，原生事件是否会执行。会
-  A…]]></description><link>https://chinleyhuang.ink/foundamention/react/合成事件/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/合成事件/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;合成事件&lt;/h4&gt;
-&lt;p&gt;  合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理&lt;/p&gt;
-&lt;h4&gt;浏览器事件机制&lt;/h4&gt;
-&lt;p&gt;  捕获阶段（父到子） -&gt; 获取到目标元素 -&gt; 冒泡阶段（子到父）
-Q:若对合成事件进行阻止，原生事件是否会执行。会
-A:因为原生事件优先于合成事件执行。而合成事件处于目标阶段，它阻止的冒泡只是阻止合成的事件冒泡，但是原生事件在捕获阶段就已经执行了&lt;/p&gt;
-&lt;h4&gt;合成事件特点&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;React上注册的事件最终会绑定在根结点上(react 17是根结点，之前是在document上)，而不是组件对应的dom。&lt;/li&gt;
-&lt;li&gt;React自身实现了一套事件冒泡机制，因此e.stoppropagation无效&lt;/li&gt;
-&lt;li&gt;React通过对象池的形式管理合成事件对象的创建和销毁，减少垃圾的生成和新对象内存的分配&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4&gt;React事件机制&lt;/h4&gt;
-&lt;p&gt;  事件注册、事件存储、事件分发、事件执行（构造合成事件、批处理）&lt;/p&gt;
-&lt;h4&gt;为什么需要合成事件&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;统一浏览器的各个标准，兼容多个浏览器的事件，在底层抹平不同浏览器的差异&lt;/li&gt;
-&lt;li&gt;对合成事件中的调用的setstate进行合并，避免多次更新造成浪费&lt;/li&gt;
-&lt;li&gt;更好的实现事件管控，以便契合react自身的一些策略和优化&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[React之setState]]></title><description><![CDATA[setState是同步还是异步   react是会合并setstate的操作，避免多次渲染更新页面，造成一种异步的假象。React内部有一个全局唯一的标识(isBatchingUpdates)来表示是否进行合并更新。当生命周期函数或合成事件开始执行前，标识会设为true…]]></description><link>https://chinleyhuang.ink/foundamention/react/setState/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/setState/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;setState是同步还是异步&lt;/h4&gt;
-&lt;p&gt;  react是会合并setstate的操作，避免多次渲染更新页面，造成一种异步的假象。React内部有一个全局唯一的标识(isBatchingUpdates)来表示是否进行合并更新。当生命周期函数或合成事件开始执行前，标识会设为true，代码执行完毕之后恢复为false&lt;/p&gt;
-&lt;p&gt;  在react管控的事件里，表现为异步。不受react管控的事件，就会直接更新。故&lt;/p&gt;
-&lt;p&gt;  生命周期函数和合成事件中，表现为异步。
-原生事件和异步代码，表现为异步&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之虚拟dom]]></title><description><![CDATA[什么虚拟dom   平时编写react时候，使用jsx语法糖，经过babel编译后会被转成一个个的createElement的方法。而createElement方法返回的描述dom节点对象就是虚拟dom。
+componentWillUnmount&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之虚拟dom]]></title><description><![CDATA[什么虚拟dom   平时编写react时候，使用jsx语法糖，经过babel编译后会被转成一个个的createElement的方法。而createElement方法返回的描述dom节点对象就是虚拟dom。
   虚拟dom是一种模式，是对ui…]]></description><link>https://chinleyhuang.ink/foundamention/react/虚拟dom/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/虚拟dom/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么虚拟dom&lt;/h4&gt;
 &lt;p&gt;  平时编写react时候，使用jsx语法糖，经过babel编译后会被转成一个个的createElement的方法。而createElement方法返回的描述dom节点对象就是虚拟dom。
 虚拟dom是一种模式，是对ui层的一种抽象。这样可以针对不同的运行环境使用一套相同/类似的概念和api进行映射和操作。再通过react dom等类库来进行它和真实dom之间的同步。
@@ -405,32 +528,7 @@ ii. 否则就对比它的属性&lt;/li&gt;
 &lt;ol&gt;
 &lt;li&gt;如果key发生了变化，就会摧毁重新创建节点&lt;/li&gt;
 &lt;li&gt;如果key没有发生改变，而组件内容或属性有变化，就会更新组件&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[js深入之闭包]]></title><description><![CDATA[什么是闭包   闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数   闭包 = 函数 + 自由变量   ECMAScript…]]></description><link>https://chinleyhuang.ink/foundamention/闭包/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/闭包/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么是闭包&lt;/h4&gt;
-&lt;hr&gt;
-&lt;p&gt;  闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数&lt;/p&gt;
-&lt;p&gt;  闭包 = 函数 + 自由变量&lt;/p&gt;
-&lt;p&gt;  ECMAScript中，闭包指的是：&lt;/p&gt;
-&lt;p&gt;从理论角度：所有的函数。因为它们都在创建的时候就将上层上下文的数据保存起来了。哪怕是简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。
-从实践角度：以下函数才算是闭包：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）&lt;/li&gt;
-&lt;li&gt;在代码中引用了自由变量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;代码示例&lt;/h4&gt;
-&lt;hr&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;global scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;local scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; scope&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; f&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;f函数执行的时候，尽管checkscope的执行上下文已经从执行上下文栈中弹出，checkscopeContext被销毁了，但f函数的执行上下文维护的作用域还是记录了checkscope的活动变量
-fStack = [VO, checkscopeContext.VO, globalContext.VO]&lt;/p&gt;</content:encoded></item><item><title><![CDATA[防抖与节流]]></title><description><![CDATA[防抖   你尽管触发事件，但我一定在事件触发n秒后才执行，如果在一个事件触发的n秒内又触发了这个事件，就以新的事件的事件为准, n秒后才执行。总是触发完事件n…]]></description><link>https://chinleyhuang.ink/foundamention/防抖与节流/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/防抖与节流/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;防抖&lt;/h4&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[防抖与节流]]></title><description><![CDATA[防抖   你尽管触发事件，但我一定在事件触发n秒后才执行，如果在一个事件触发的n秒内又触发了这个事件，就以新的事件的事件为准, n秒后才执行。总是触发完事件n…]]></description><link>https://chinleyhuang.ink/foundamention/防抖与节流/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/防抖与节流/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;防抖&lt;/h4&gt;
 &lt;p&gt;  你尽管触发事件，但我一定在事件触发n秒后才执行，如果在一个事件触发的n秒内又触发了这个事件，就以新的事件的事件为准, n秒后才执行。总是触发完事件n秒内不再触发事件，才执行新的事件&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;debounce&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;fun&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; delay&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; immediate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; timer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
@@ -458,20 +556,32 @@ fStack = [VO, checkscopeContext.VO, globalContext.VO]&lt;/p&gt;</content:encoded
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; debounced&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4&gt;节流&lt;/h4&gt;
-&lt;p&gt;  一段时间只执行一次,根据首次是否执行以及结束后是否执行，效果与实现方式都有所不同。用leading代表首次是否执行，trailing代表结束后是否再执行一次&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之词法作用域和动态作用域]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/3 静态作用域vs动态作用域 JavaScript…]]></description><link>https://chinleyhuang.ink/foundamention/作用域/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/作用域/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/3&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/3&lt;/a&gt;&lt;/p&gt;
-&lt;h4&gt;静态作用域vs动态作用域&lt;/h4&gt;
-&lt;p&gt;JavaScript采用词法作用域，也就是静态作用域。
-词法作用域：函数的作用域在函数定义的时候就决定了
-动态作用域：函数的作用域在函数调用的时候才决定&lt;/p&gt;
-&lt;h4&gt;什么是变量提升&lt;/h4&gt;
-&lt;p&gt;  var变量会发生“变量提升”的现象，即变量可以在声明之前使用，值为undefined。let/const声明变量的一定要在声明之后使用，否则报错。&lt;/p&gt;
-&lt;h4&gt;为什么存在变量提升&lt;/h4&gt;
-&lt;p&gt;  主要是因为在执行上下文创建阶段，函数声明和var声明的变量已经被赋予了一个值，var声明被设置了undefined，函数声明为自身，let 和 const 设置为未初始化。作用域创建时两者初始化的值不同。&lt;/p&gt;
-&lt;h4&gt;暂时性死区&lt;/h4&gt;
-&lt;p&gt;  在代码块内，使用let/const声明变量之前，该变量都是不可用的。本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取。只有执行到声明变量，才可以获取和使用该变量。&lt;/p&gt;
-&lt;h4&gt;什么是作用域链&lt;/h4&gt;
-&lt;p&gt;  当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级执行上下文的变量对象中查找，一直到全局上下文的变量对象，也就是全局对象。这种由多个执行上下文的变量对象构成的链表叫做作用域链。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之继承的多种方式和优缺点]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/16 继承   原型链继承、借用构造函数、组合继承、原型式继承 继承的方式 原型链继承：child构造函数的prototype指向parent…]]></description><link>https://chinleyhuang.ink/foundamention/继承/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/继承/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
+&lt;p&gt;  一段时间只执行一次,根据首次是否执行以及结束后是否执行，效果与实现方式都有所不同。用leading代表首次是否执行，trailing代表结束后是否再执行一次&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之闭包]]></title><description><![CDATA[什么是闭包   闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数   闭包 = 函数 + 自由变量   ECMAScript…]]></description><link>https://chinleyhuang.ink/foundamention/闭包/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/闭包/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么是闭包&lt;/h4&gt;
+&lt;hr&gt;
+&lt;p&gt;  闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数&lt;/p&gt;
+&lt;p&gt;  闭包 = 函数 + 自由变量&lt;/p&gt;
+&lt;p&gt;  ECMAScript中，闭包指的是：&lt;/p&gt;
+&lt;p&gt;从理论角度：所有的函数。因为它们都在创建的时候就将上层上下文的数据保存起来了。哪怕是简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。
+从实践角度：以下函数才算是闭包：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）&lt;/li&gt;
+&lt;li&gt;在代码中引用了自由变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;代码示例&lt;/h4&gt;
+&lt;hr&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;global scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; scope &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;local scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; scope&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; f&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checkscope&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;f函数执行的时候，尽管checkscope的执行上下文已经从执行上下文栈中弹出，checkscopeContext被销毁了，但f函数的执行上下文维护的作用域还是记录了checkscope的活动变量
+fStack = [VO, checkscopeContext.VO, globalContext.VO]&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之继承的多种方式和优缺点]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/16 继承   原型链继承、借用构造函数、组合继承、原型式继承 继承的方式 原型链继承：child构造函数的prototype指向parent…]]></description><link>https://chinleyhuang.ink/foundamention/继承/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/继承/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/16&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/16&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;继承&lt;/h4&gt;
 &lt;p&gt;  原型链继承、借用构造函数、组合继承、原型式继承&lt;/p&gt;
@@ -588,7 +698,20 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;li&gt;this的绑定&lt;/li&gt;
 &lt;li&gt;变量对象/词法环境的创建&lt;/li&gt;
 &lt;li&gt;活动对象/变量环境的创建&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[js深入之从原型到原型链]]></title><description><![CDATA[学习文章 https://github.com/mqyqingfeng/Blog/issues/2 proto QA 什么是原型   每一个JavaScript对象(null…]]></description><link>https://chinleyhuang.ink/foundamention/原型与原型链/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/原型与原型链/</guid><pubDate>Mon, 07 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;学习文章&lt;/h5&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[js深入之词法作用域和动态作用域]]></title><description><![CDATA[文章导读 https://github.com/mqyqingfeng/Blog/issues/3 静态作用域vs动态作用域 JavaScript…]]></description><link>https://chinleyhuang.ink/foundamention/作用域/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/作用域/</guid><pubDate>Tue, 08 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;文章导读&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/3&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/3&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;静态作用域vs动态作用域&lt;/h4&gt;
+&lt;p&gt;JavaScript采用词法作用域，也就是静态作用域。
+词法作用域：函数的作用域在函数定义的时候就决定了
+动态作用域：函数的作用域在函数调用的时候才决定&lt;/p&gt;
+&lt;h4&gt;什么是变量提升&lt;/h4&gt;
+&lt;p&gt;  var变量会发生“变量提升”的现象，即变量可以在声明之前使用，值为undefined。let/const声明变量的一定要在声明之后使用，否则报错。&lt;/p&gt;
+&lt;h4&gt;为什么存在变量提升&lt;/h4&gt;
+&lt;p&gt;  主要是因为在执行上下文创建阶段，函数声明和var声明的变量已经被赋予了一个值，var声明被设置了undefined，函数声明为自身，let 和 const 设置为未初始化。作用域创建时两者初始化的值不同。&lt;/p&gt;
+&lt;h4&gt;暂时性死区&lt;/h4&gt;
+&lt;p&gt;  在代码块内，使用let/const声明变量之前，该变量都是不可用的。本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取。只有执行到声明变量，才可以获取和使用该变量。&lt;/p&gt;
+&lt;h4&gt;什么是作用域链&lt;/h4&gt;
+&lt;p&gt;  当查找变量的时候，会先从当前上下文的变量对象中查找，如果没有找到，就会从父级执行上下文的变量对象中查找，一直到全局上下文的变量对象，也就是全局对象。这种由多个执行上下文的变量对象构成的链表叫做作用域链。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[js深入之从原型到原型链]]></title><description><![CDATA[学习文章 https://github.com/mqyqingfeng/Blog/issues/2 proto QA 什么是原型   每一个JavaScript对象(null…]]></description><link>https://chinleyhuang.ink/foundamention/原型与原型链/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/原型与原型链/</guid><pubDate>Mon, 07 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;学习文章&lt;/h5&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/mqyqingfeng/Blog/issues/2&quot;&gt;https://github.com/mqyqingfeng/Blog/issues/2&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/9a69b0f03116884e80cf566f8542cf014a4dd043fce6ce030d615040461f4e5a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6d717971696e6766656e672f426c6f672f496d616765732f70726f746f74797065352e706e67&quot; alt=&quot;proto&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -1211,36 +1334,7 @@ f(0, j) = 1, j &amp;lt; n&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; s&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;substring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;start&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; end&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// substring不包含end下标的值，因此需要+1&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[Babel是什么   Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。   babel…]]></description><link>https://chinleyhuang.ink/webpack/babel/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/babel/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;Babel是什么&lt;/h4&gt;
-&lt;p&gt;  Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。&lt;/p&gt;
-&lt;p&gt;  babel主要完成以下内容：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;语法转换，一般是高级语言特性的降级&lt;/li&gt;
-&lt;li&gt;polyfill特性的实现和接入&lt;/li&gt;
-&lt;li&gt;源码转换，比如JSX等&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4&gt;梳理Babel&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;@babel/core 是babel实现转换的核心，可以根据配置，进行源码的转换&lt;/li&gt;
-&lt;li&gt;@babel/cli 是babel提供的命令行&lt;/li&gt;
-&lt;li&gt;@babel/standalone 非node.js环境自动编译text/babel或text/jsx的type值的script标签， 可以在浏览器中直接执行，浏览器环境动态插入高级语言特性的脚本、在线自动解析编译非常有意义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/04/5A/Cip5yF_tojyAfvQeAAMW8bbGBAY698.png&quot; alt=&quot;babel&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[按需打包 目前按需打包一般通过两种方式进行： 使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包； 使用以Babel-plugin-import为主的babel插件，实现自动按需打包 Tree shaking 实现按需打包 webpack…]]></description><link>https://chinleyhuang.ink/webpack/treeshaking/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/treeshaking/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;按需打包&lt;/h5&gt;
-&lt;p&gt;目前按需打包一般通过两种方式进行：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包；&lt;/li&gt;
-&lt;li&gt;使用以Babel-plugin-import为主的babel插件，实现自动按需打包&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5&gt;Tree shaking 实现按需打包&lt;/h5&gt;
-&lt;p&gt;webpack可以在package.json中设置sideEffects:false&lt;/p&gt;
-&lt;h5&gt;按需加载&lt;/h5&gt;
-&lt;p&gt;如何在webpack环境下支持代码拆分和按需加载&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;通过入口配置手动分割代码(entry)&lt;/li&gt;
-&lt;li&gt;动态导入支持；&lt;/li&gt;
-&lt;li&gt;通过splitchunk插件提取公共代码(公共代码分割)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5&gt;webpack对动态引入能力支持&lt;/h5&gt;</content:encoded></item><item><title><![CDATA[webpack学习]]></title><description><![CDATA[webpack 模块打包工具 为什么需要webpack   1.解决浏览器兼容问题
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[webpack学习]]></title><description><![CDATA[webpack 模块打包工具 为什么需要webpack   1.解决浏览器兼容问题
   2.将散落的模块打包到一起，解决频繁请求的问题
   3.支持将不同的资源，例如图片、字体等作为模块调用，便于维护与处理业务 模块打包   1.定义打包入口 entry, entry…]]></description><link>https://chinleyhuang.ink/webpack/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;webpack 模块打包工具&lt;/h4&gt;
 &lt;h5&gt;为什么需要webpack&lt;/h5&gt;
@@ -1260,7 +1354,36 @@ style-loade把css-loader转换后的结果通过追加style的方式加载到页
 一旦配置多个 Loader，执行顺序是从后往前执行的&lt;/p&gt;
 &lt;h5&gt;插件机制：增强webpack自动化构建的能力&lt;/h5&gt;
 &lt;h5&gt;常用插件&lt;/h5&gt;
-&lt;p&gt;  clean-webpack-plugin: 实现自动在打包之前清除 dist 目录（上次的打包结果）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
+&lt;p&gt;  clean-webpack-plugin: 实现自动在打包之前清除 dist 目录（上次的打包结果）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[按需打包 目前按需打包一般通过两种方式进行： 使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包； 使用以Babel-plugin-import为主的babel插件，实现自动按需打包 Tree shaking 实现按需打包 webpack…]]></description><link>https://chinleyhuang.ink/webpack/treeshaking/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/treeshaking/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;按需打包&lt;/h5&gt;
+&lt;p&gt;目前按需打包一般通过两种方式进行：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包；&lt;/li&gt;
+&lt;li&gt;使用以Babel-plugin-import为主的babel插件，实现自动按需打包&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;Tree shaking 实现按需打包&lt;/h5&gt;
+&lt;p&gt;webpack可以在package.json中设置sideEffects:false&lt;/p&gt;
+&lt;h5&gt;按需加载&lt;/h5&gt;
+&lt;p&gt;如何在webpack环境下支持代码拆分和按需加载&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过入口配置手动分割代码(entry)&lt;/li&gt;
+&lt;li&gt;动态导入支持；&lt;/li&gt;
+&lt;li&gt;通过splitchunk插件提取公共代码(公共代码分割)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;webpack对动态引入能力支持&lt;/h5&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[Babel是什么   Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。   babel…]]></description><link>https://chinleyhuang.ink/webpack/babel/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/babel/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;Babel是什么&lt;/h4&gt;
+&lt;p&gt;  Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。&lt;/p&gt;
+&lt;p&gt;  babel主要完成以下内容：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;语法转换，一般是高级语言特性的降级&lt;/li&gt;
+&lt;li&gt;polyfill特性的实现和接入&lt;/li&gt;
+&lt;li&gt;源码转换，比如JSX等&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;梳理Babel&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;@babel/core 是babel实现转换的核心，可以根据配置，进行源码的转换&lt;/li&gt;
+&lt;li&gt;@babel/cli 是babel提供的命令行&lt;/li&gt;
+&lt;li&gt;@babel/standalone 非node.js环境自动编译text/babel或text/jsx的type值的script标签， 可以在浏览器中直接执行，浏览器环境动态插入高级语言特性的脚本、在线自动解析编译非常有意义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/04/5A/Cip5yF_tojyAfvQeAAMW8bbGBAY698.png&quot; alt=&quot;babel&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu…]]></description><link>https://chinleyhuang.ink/how-browser-work/</link><guid isPermaLink="false">https://chinleyhuang.ink/how-browser-work/</guid><pubDate>Fri, 07 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;名词介绍：CPU、GPU、内存和多线程架构&lt;/h3&gt;
 &lt;p&gt;cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu可以承担更多计算任务。在三层计算机体系结构中，硬件位于底部，操作系统位于中间，应用程序则在最上层。在使用计算机时，应用程序使用操作系统提供的机制在CPU和GPU上运行。&lt;/p&gt;
