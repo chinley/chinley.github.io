@@ -101,6 +101,17 @@ canvas<span class="token punctuation">.</span><span class="token function">clear
 canvas<span class="token punctuation">.</span><span class="token function">putImageData</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <h3>使用webgl</h3>
 <p>  使用canvas会导致CPU占用高，webgl可以开启GPU渲染，CPU占用低，因此可以通过webgl来绘制动画视频。</p>
+<p>  在这里贴上一个大佬的实现，关键代码在于设置rgb值和alpha值混合
+<a href="https://juejin.cn/post/6885673542642302984">webgl 实现透明视频 动画</a></p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">gl_FragColor <span class="token operator">=</span> <span class="token function">vec4</span><span class="token punctuation">(</span><span class="token function">texture2D</span><span class="token punctuation">(</span>u_sampler<span class="token punctuation">,</span> v_texCoord<span class="token punctuation">)</span><span class="token punctuation">.</span>rgb<span class="token punctuation">,</span> <span class="token function">texture2D</span><span class="token punctuation">(</span>u_sampler<span class="token punctuation">,</span> v_texCoord<span class="token operator">+</span><span class="token function">vec2</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> textureVertice <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Float32Array</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+    <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+    <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 这里将纹理左半部分映射到整个画布上</span>
+gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ARRAY_BUFFER</span><span class="token punctuation">,</span> textureBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
 <h2>SVGA动画</h2>
 <p>video动画是一种比较静态的动画，mp4是什么样子动画结果就是什么样子，而SVGA动画可以动态设置某些元素，比方用户头像之类的，可以做一些定制化处理。因此如果动画有需要动态设置的部分，就可以考虑使用SVGA格式。</p>
 <p>SVGA动画可以通过svga.lite库来解析</p>
