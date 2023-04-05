@@ -1,5 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 15 Mar 2023 16:34:59 GMT</lastBuildDate><item><title><![CDATA[手机如何在连接代理的同时还能翻墙，还可以抓包]]></title><description><![CDATA[在处理海外业务需求的时候，需要翻墙模拟海外环境，并且还要对请求进行抓包。如果在手机上开启vpn，又对网络进行一个代理设置，这样只能翻墙，抓不了包。在一番实践后找到一种解决方法。 电脑开启翻墙
-Charles有个external proxy…]]></description><link>https://chinleyhuang.ink/foundamention/html/翻墙代理/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/html/翻墙代理/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;在处理海外业务需求的时候，需要翻墙模拟海外环境，并且还要对请求进行抓包。如果在手机上开启vpn，又对网络进行一个代理设置，这样只能翻墙，抓不了包。在一番实践后找到一种解决方法。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 05 Apr 2023 08:38:48 GMT</lastBuildDate><item><title><![CDATA[灰度思路]]></title><description><![CDATA[灰度思路： 接口控制功能开关 server层做转发到灰度域名 3.1 后台配置多个灰度规则，开启一个服务器，定时生成灰度规则文件，html引入该文件，把灰度规则挂载到window上并判断是否命中灰度规则。 3.2 假设有abc三台灰度机器，https://lily.com…]]></description><link>https://chinleyhuang.ink/foundamention/html/灰度/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/html/灰度/</guid><pubDate>Thu, 09 Mar 2023 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;灰度思路：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;接口控制功能开关&lt;/li&gt;
+&lt;li&gt;server层做转发到灰度域名&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;3.1 后台配置多个灰度规则，开启一个服务器，定时生成灰度规则文件，html引入该文件，把灰度规则挂载到window上并判断是否命中灰度规则。&lt;/p&gt;
+&lt;p&gt;3.2 假设有abc三台灰度机器，&lt;a href=&quot;https://lily.com/index.html?gray=a%E6%8C%87%E5%90%91a%E6%9C%BA%E5%99%A8%EF%BC%8Chttps://lily.com/index.html?gray=b%E6%8C%87%E5%90%91b%E6%9C%BA%E5%99%A8%EF%BC%8Chttps://lily.com/index.html?gray=c%E6%8C%87%E5%90%91c%E6%9C%BA%E5%99%A8%EF%BC%8C%E9%80%9A%E8%BF%87nginx%E9%85%8D%E7%BD%AE%E6%A0%B9%E6%8D%AE%E5%8F%82%E6%95%B0%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E6%9C%8D%E5%8A%A1%E5%99%A8&quot;&gt;https://lily.com/index.html?gray=a指向a机器，https://lily.com/index.html?gray=b指向b机器，https://lily.com/index.html?gray=c指向c机器，通过nginx配置根据参数访问不同服务器&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3.3 html如果命中灰度规则，重定向到带有灰度参数的链接&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[手机如何在连接代理的同时还能翻墙，还可以抓包]]></title><description><![CDATA[在处理海外业务需求的时候，需要翻墙模拟海外环境，并且还要对请求进行抓包。如果在手机上开启vpn，又对网络进行一个代理设置，这样只能翻墙，抓不了包。在一番实践后找到一种解决方法。 电脑开启翻墙
+Charles有个external proxy…]]></description><link>https://chinleyhuang.ink/foundamention/html/翻墙代理/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/html/翻墙代理/</guid><pubDate>Sun, 12 Feb 2023 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;在处理海外业务需求的时候，需要翻墙模拟海外环境，并且还要对请求进行抓包。如果在手机上开启vpn，又对网络进行一个代理设置，这样只能翻墙，抓不了包。在一番实践后找到一种解决方法。&lt;/p&gt;
 &lt;p&gt;电脑开启翻墙
 Charles有个external proxy的设置，可以让抓包工具转发的请求，再通过某个代理去转发，在external proxy配置电脑翻墙的端口，手机去连Charles的端口。&lt;/p&gt;
 &lt;p&gt;解决思路：
@@ -289,15 +298,7 @@ player&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;h2&gt;3D动画&lt;/h2&gt;
 &lt;p&gt;未完待续……&lt;/p&gt;
 &lt;h6&gt;相关阅读：&lt;/h6&gt;
-&lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/6844903725153124359#heading-28&quot;&gt;看你骨骼惊奇，这里有一套 Canvas 粒子动画方案了解一下？&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[灰度思路]]></title><description><![CDATA[灰度思路： 接口控制功能开关 server层做转发到灰度域名 3.1 后台配置多个灰度规则，开启一个服务器，定时生成灰度规则文件，html引入该文件，把灰度规则挂载到window上并判断是否命中灰度规则。
-3.2 假设有abc三台灰度机器，https://lily.com…]]></description><link>https://chinleyhuang.ink/foundamention/html/灰度/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/html/灰度/</guid><pubDate>Invalid Date</pubDate><content:encoded>&lt;p&gt;灰度思路：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;接口控制功能开关&lt;/li&gt;
-&lt;li&gt;server层做转发到灰度域名&lt;/li&gt;
-&lt;li&gt;3.1 后台配置多个灰度规则，开启一个服务器，定时生成灰度规则文件，html引入该文件，把灰度规则挂载到window上并判断是否命中灰度规则。
-3.2 假设有abc三台灰度机器，&lt;a href=&quot;https://lily.com/index.html?gray=a%E6%8C%87%E5%90%91a%E6%9C%BA%E5%99%A8%EF%BC%8Chttps://lily.com/index.html?gray=b%E6%8C%87%E5%90%91b%E6%9C%BA%E5%99%A8%EF%BC%8Chttps://lily.com/index.html?gray=c%E6%8C%87%E5%90%91c%E6%9C%BA%E5%99%A8%EF%BC%8C%E9%80%9A%E8%BF%87nginx%E9%85%8D%E7%BD%AE%E6%A0%B9%E6%8D%AE%E5%8F%82%E6%95%B0%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E6%9C%8D%E5%8A%A1%E5%99%A8&quot;&gt;https://lily.com/index.html?gray=a指向a机器，https://lily.com/index.html?gray=b指向b机器，https://lily.com/index.html?gray=c指向c机器，通过nginx配置根据参数访问不同服务器&lt;/a&gt;
-3.3 html如果命中灰度规则，重定向到带有灰度参数的链接&lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[微信小程序实践]]></title><description><![CDATA[仅针对原生的微信小程序开发 代码如何模块化 mixins机制 代码实现 组件化 behaviors 封装函数 工程化实践 开发环境优化 支持scss 支持px转rpx 增量编译 eslint检查 CI/CD实践 接口环境切换 性能优化 分包 图片优化 代码按需注入 使用wxs…]]></description><link>https://chinleyhuang.ink/live/小程序实践/</link><guid isPermaLink="false">https://chinleyhuang.ink/live/小程序实践/</guid><pubDate>Fri, 23 Dec 2022 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;仅针对&lt;strong&gt;原生的微信小程序&lt;/strong&gt;开发&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://juejin.cn/post/6844903725153124359#heading-28&quot;&gt;看你骨骼惊奇，这里有一套 Canvas 粒子动画方案了解一下？&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[微信小程序实践]]></title><description><![CDATA[仅针对原生的微信小程序开发 代码如何模块化 mixins机制 代码实现 组件化 behaviors 封装函数 工程化实践 开发环境优化 支持scss 支持px转rpx 增量编译 eslint检查 CI/CD实践 接口环境切换 性能优化 分包 图片优化 代码按需注入 使用wxs…]]></description><link>https://chinleyhuang.ink/live/小程序实践/</link><guid isPermaLink="false">https://chinleyhuang.ink/live/小程序实践/</guid><pubDate>Fri, 23 Dec 2022 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;仅针对&lt;strong&gt;原生的微信小程序&lt;/strong&gt;开发&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&quot;#%E4%BB%A3%E7%A0%81%E5%A6%82%E4%BD%95%E6%A8%A1%E5%9D%97%E5%8C%96&quot;&gt;代码如何模块化&lt;/a&gt;&lt;/p&gt;
@@ -2145,7 +2146,81 @@ foo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;p&gt;foo.call(bar, ‘kevin’, 18);
 foo.call(bar, [‘kevin’, 18]);&lt;/p&gt;
 &lt;h4&gt;bind&lt;/h4&gt;
-&lt;p&gt;  bind() 方法会创建一个新函数。当这个新函数被调用时，bind() 的第一个参数将作为它运行时的 this，之后的一序列参数将会在传递的实参前传入作为它的参数。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之合成事件]]></title><description><![CDATA[合成事件   合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理 浏览器事件机制   捕获阶段（父到子） -> 获取到目标元素 -> 冒泡阶段（子到父）
+&lt;p&gt;  bind() 方法会创建一个新函数。当这个新函数被调用时，bind() 的第一个参数将作为它运行时的 this，之后的一序列参数将会在传递的实参前传入作为它的参数。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[事件循环，宏任务与微任务]]></title><description><![CDATA[JavaScript…]]></description><link>https://chinleyhuang.ink/foundamention/事件循环/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/事件循环/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;JavaScript是一个单线程的脚本语言，所以在一行代码执行的过程中，必然不会存在同时执行的另一行代码。&lt;/p&gt;
+&lt;p&gt;如果有些代码执行了大量的计算，比方在前端破解密码之类的操作，就会导致后续代码一直在等待，页面处于假死状态，因为前边的代码没有执行完。&lt;/p&gt;
+&lt;p&gt;所以如果所有代码都是同步执行的，对于一些请求难道要一直循环代码去判断是否拿到了返回结果么，于是就有异步事件的概念。注册一个回调函数，比如说发一个网络请求，我们告诉主程序等到接收到数据后通知我，然后我们就可以去做其他事情了。&lt;/p&gt;
+&lt;p&gt;然后在异步完成后，会通知我们，但是此时可能程序正在做其他事情，所以即使异步完成了也要在一旁等待，等到程序空闲下来才有时间去看哪些异步已经完成了，可以去执行。&lt;/p&gt;
+&lt;h4&gt;微任务和宏任务的区别&lt;/h4&gt;
+&lt;p&gt;多个宏任务合在一起可以认为有一个任务队列在这，任务队列中的都是已经完成的异步操作，在当前的微任务没有执行完成时，是不会执行下一个宏任务的。&lt;/p&gt;
+&lt;h4&gt;宏任务&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;setTimeout&lt;/li&gt;
+&lt;li&gt;setInterval&lt;/li&gt;
+&lt;li&gt;requestAnimationFrame&lt;/li&gt;
+&lt;li&gt;I/O&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;微任务&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Promise.then catch finally&lt;/li&gt;
+&lt;li&gt;mutationObserver&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;什么是事件循环&lt;/h4&gt;
+&lt;p&gt;  JavaScipt代码执行的过程中，除了依靠函数调用栈来确定函数的执行顺序外，还依靠任务队列来确定代码执行，整个执行过程称为事件循环过程。一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。任务队列又分为宏任务与微任务。&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt;所有的任务可以分为同步任务和异步任务。同步任务就是立即执行的任务，而异步任务就是异步执行的任务。异步任务会通过任务队列的机制来进行协调。每个宏任务执行完，都会检查有没有微任务，如果有，执行完所有的微任务再执行下一个宏任务。&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[与其他框架相比，React 的 diff 算法有何不同]]></title><description><![CDATA[传统diff 计算两棵树形结构差异并进行转换，传统diff算法的做法：循环递归每一个节点
+dom diff 比如左侧树a节点依次进行对比，a->e、a->d、a->b、a->c、a->a，左侧其他节点也是，算法复杂度能达到O(n^…]]></description><link>https://chinleyhuang.ink/foundamention/react/diff/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/diff/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h2&gt;传统diff&lt;/h2&gt;
+&lt;p&gt;计算两棵树形结构差异并进行转换，传统diff算法的做法：循环递归每一个节点
+&lt;img src=&quot;https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy84OTAxNjUyLTgyOWVkMjc2OTUwNGQzYjUucG5nP2ltYWdlTW9ncjIvYXV0by1vcmllbnQvc3RyaXB8aW1hZ2VWaWV3Mi8yL3cvMTIwMC9mb3JtYXQvd2VicA?x-oss-process=image/format,png&quot; alt=&quot;dom diff&quot;&gt;&lt;/p&gt;
+&lt;p&gt;比如左侧树a节点依次进行对比，a-&gt;e、a-&gt;d、a-&gt;b、a-&gt;c、a-&gt;a，左侧其他节点也是，算法复杂度能达到O(n^2), 查完差异后还要计算最小转换方式，最终达到的算法复杂度是O(n^3)&lt;/p&gt;
+&lt;h2&gt;React dom diff&lt;/h2&gt;
+&lt;p&gt;React diff算法是&lt;strong&gt;深度优先遍历&lt;/strong&gt;的比较算法，用于当状态变更时，比较新旧虚拟dom树，局部更新变化的节点，提高渲染效率。&lt;/p&gt;
+&lt;p&gt;为了优化react diff算法的复杂度，react根据经验提出三点前提：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;跨层级的移动dom场景较少，可忽略不计,所以react实现的是diff的&lt;strong&gt;同层级比较&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;两种不同类型的元素会产生不同的树&lt;/li&gt;
+&lt;li&gt;开发者可以通过key属性来告知哪些元素可以在不同的渲染下保持不变。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;依据这三点，有三种比较策略&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;树比较，tree diff 不同的元素类型的树直接替换，不再遍历子节点&lt;/li&gt;
+&lt;li&gt;component diff：可以通过key来告知哪些组件需要刷新&lt;/li&gt;
+&lt;li&gt;element diff: 处理文本替换&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;优点：降低diff复杂度，由原来O(n^3)降低到O(n)
+缺点：&lt;/p&gt;
+&lt;h3&gt;Diff算法&lt;/h3&gt;
+&lt;p&gt;  具体流程：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;真实dom与虚拟dom之间存在一个映射关系，这个映射关系依靠初始化是的JSX建立完成&lt;/li&gt;
+&lt;li&gt;当虚拟dom发生变化后，就会根据差距计算生成patch，这个patch是一个结构化数据，内容包含了增加、更新、移除等；&lt;/li&gt;
+&lt;li&gt;最后再根据patch去更新真实的dom，反馈到用户的界面上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;更新时机&lt;/h4&gt;
+&lt;p&gt;  触发更新、进行差异对比的时机。更新发生在setState、Hooks等调用操作后。&lt;/p&gt;
+&lt;h4&gt;遍历算法&lt;/h4&gt;
+&lt;p&gt;  diff 算法采用了&lt;strong&gt;深度优先遍历算法&lt;/strong&gt;。因为广度优先遍历可能会导致组件的生命周期时序错乱，而深度优先遍历算法就可以解决这个问题&lt;/p&gt;
+&lt;h4&gt;优化策略&lt;/h4&gt;
+&lt;p&gt;  React分别从&lt;strong&gt;树、组件及元素&lt;/strong&gt;三个层面进行复杂度优化&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;树比对，&lt;strong&gt;忽略节点跨层级操作的场景&lt;/strong&gt;。树比对的手法是非常暴力的，两棵树只对同一层次的节点进行比较，如果节点已经不存在了，该节点及其子节点会被完全删掉，不会用于进一步对比&lt;/li&gt;
+&lt;li&gt;如果组件的类型一致，则默认为相似的树结构，否则默认为不同的树结构&lt;/li&gt;
+&lt;li&gt;同一层级的子节点，可以通过标记key的方式进行对比&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;  React 16引入的&lt;strong&gt;Fiber设计&lt;/strong&gt;，Fiber机制下节点与树分别采用FiberNode与FiberTree进行重构。FiberNode采用双链表的结构，可以直接找到兄弟节点与子节点，使得整个更新过程可以暂停恢复。&lt;/p&gt;
+&lt;p&gt;  Fiber机制下，整个更新过程由current与workInProgress两株树双缓冲完成，当workInProgress更新完成后，通过修改current相关指针指向的节点，直接抛弃老树&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/04/31/CgpVE1_q2zGAe9UzAACKAZViwbM237.png&quot; alt=&quot;proto&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  尽量减少将最后一个节点移动到列表首部的操作&lt;/p&gt;
+&lt;h2&gt;vue dom diff&lt;/h2&gt;
+&lt;p&gt;与react diff大同小异，&lt;strong&gt;比较只会在同层级进行，不会跨层级比较&lt;/strong&gt;
+不同的是，vue是两端到中间的对比，react是从左到右依次进行对对比。比方说把最后一个节点移到第一个，react会依次移动前三个节点到对应位置，而vue会在首尾对比时，只移动最后一个节点到第一位。&lt;/p&gt;
+&lt;h3&gt;扩展&lt;/h3&gt;
+&lt;h5&gt;key的作用&lt;/h5&gt;
+&lt;p&gt;dom diff的时候比较新旧虚拟dom。&lt;/p&gt;
+&lt;p&gt;如果在旧虚拟dom找到新虚拟dom相同的key: 如果内容不变，直接使用之前的真实dom；若改变，生成新的真实dom，随后替换页面之前的真实dom。&lt;/p&gt;
+&lt;p&gt;如果在旧虚拟dom中没有找到新虚拟dom相同的key，就会生成新的真实dom渲染到页面。&lt;/p&gt;
+&lt;h5&gt;为什么key最好不要用index&lt;/h5&gt;
+&lt;p&gt;逆序添加、逆序删除等破坏顺序的操作，会产生虚拟dom和真实dom中key对不上的问题，产生很多没有必要的真实dom更新。&lt;/p&gt;
+&lt;h5&gt;不加key&lt;/h5&gt;
+&lt;p&gt;采用遍历的方式对比新旧节点&lt;/p&gt;</content:encoded></item><item><title><![CDATA[React之合成事件]]></title><description><![CDATA[合成事件   合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理 浏览器事件机制   捕获阶段（父到子） -> 获取到目标元素 -> 冒泡阶段（子到父）
   Q:若对合成事件进行阻止，原生事件是否会执行。会
   A…]]></description><link>https://chinleyhuang.ink/foundamention/react/合成事件/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/合成事件/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;合成事件&lt;/h4&gt;
 &lt;p&gt;  合成事件的触发基于浏览器的事件机制，通过冒泡机制冒泡到最顶层元素，然后再由dispatchEvent统一处理&lt;/p&gt;
@@ -2241,81 +2316,7 @@ componentWillUnmount&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Rea
 &lt;p&gt;  在react管控的事件里，表现为异步。不受react管控的事件，就会直接更新。故&lt;/p&gt;
 &lt;p&gt;  生命周期函数和合成事件中，表现为异步。
 原生事件和异步代码，表现为同步&lt;/p&gt;
-&lt;p&gt;  &lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/01/3E/CgpVE1_YU2KAStLdAAFVKxh7Dyg317.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[事件循环，宏任务与微任务]]></title><description><![CDATA[JavaScript…]]></description><link>https://chinleyhuang.ink/foundamention/事件循环/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/事件循环/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;p&gt;JavaScript是一个单线程的脚本语言，所以在一行代码执行的过程中，必然不会存在同时执行的另一行代码。&lt;/p&gt;
-&lt;p&gt;如果有些代码执行了大量的计算，比方在前端破解密码之类的操作，就会导致后续代码一直在等待，页面处于假死状态，因为前边的代码没有执行完。&lt;/p&gt;
-&lt;p&gt;所以如果所有代码都是同步执行的，对于一些请求难道要一直循环代码去判断是否拿到了返回结果么，于是就有异步事件的概念。注册一个回调函数，比如说发一个网络请求，我们告诉主程序等到接收到数据后通知我，然后我们就可以去做其他事情了。&lt;/p&gt;
-&lt;p&gt;然后在异步完成后，会通知我们，但是此时可能程序正在做其他事情，所以即使异步完成了也要在一旁等待，等到程序空闲下来才有时间去看哪些异步已经完成了，可以去执行。&lt;/p&gt;
-&lt;h4&gt;微任务和宏任务的区别&lt;/h4&gt;
-&lt;p&gt;多个宏任务合在一起可以认为有一个任务队列在这，任务队列中的都是已经完成的异步操作，在当前的微任务没有执行完成时，是不会执行下一个宏任务的。&lt;/p&gt;
-&lt;h4&gt;宏任务&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;setTimeout&lt;/li&gt;
-&lt;li&gt;setInterval&lt;/li&gt;
-&lt;li&gt;requestAnimationFrame&lt;/li&gt;
-&lt;li&gt;I/O&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;微任务&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Promise.then catch finally&lt;/li&gt;
-&lt;li&gt;mutationObserver&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;什么是事件循环&lt;/h4&gt;
-&lt;p&gt;  JavaScipt代码执行的过程中，除了依靠函数调用栈来确定函数的执行顺序外，还依靠任务队列来确定代码执行，整个执行过程称为事件循环过程。一个线程中，事件循环是唯一的，但是任务队列可以拥有多个。任务队列又分为宏任务与微任务。&lt;/p&gt;
-&lt;p&gt;  &lt;strong&gt;所有的任务可以分为同步任务和异步任务。同步任务就是立即执行的任务，而异步任务就是异步执行的任务。异步任务会通过任务队列的机制来进行协调。每个宏任务执行完，都会检查有没有微任务，如果有，执行完所有的微任务再执行下一个宏任务。&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[与其他框架相比，React 的 diff 算法有何不同]]></title><description><![CDATA[传统diff 计算两棵树形结构差异并进行转换，传统diff算法的做法：循环递归每一个节点
-dom diff 比如左侧树a节点依次进行对比，a->e、a->d、a->b、a->c、a->a，左侧其他节点也是，算法复杂度能达到O(n^…]]></description><link>https://chinleyhuang.ink/foundamention/react/diff/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/react/diff/</guid><pubDate>Tue, 22 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h2&gt;传统diff&lt;/h2&gt;
-&lt;p&gt;计算两棵树形结构差异并进行转换，传统diff算法的做法：循环递归每一个节点
-&lt;img src=&quot;https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy84OTAxNjUyLTgyOWVkMjc2OTUwNGQzYjUucG5nP2ltYWdlTW9ncjIvYXV0by1vcmllbnQvc3RyaXB8aW1hZ2VWaWV3Mi8yL3cvMTIwMC9mb3JtYXQvd2VicA?x-oss-process=image/format,png&quot; alt=&quot;dom diff&quot;&gt;&lt;/p&gt;
-&lt;p&gt;比如左侧树a节点依次进行对比，a-&gt;e、a-&gt;d、a-&gt;b、a-&gt;c、a-&gt;a，左侧其他节点也是，算法复杂度能达到O(n^2), 查完差异后还要计算最小转换方式，最终达到的算法复杂度是O(n^3)&lt;/p&gt;
-&lt;h2&gt;React dom diff&lt;/h2&gt;
-&lt;p&gt;React diff算法是&lt;strong&gt;深度优先遍历&lt;/strong&gt;的比较算法，用于当状态变更时，比较新旧虚拟dom树，局部更新变化的节点，提高渲染效率。&lt;/p&gt;
-&lt;p&gt;为了优化react diff算法的复杂度，react根据经验提出三点前提：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;跨层级的移动dom场景较少，可忽略不计,所以react实现的是diff的&lt;strong&gt;同层级比较&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;两种不同类型的元素会产生不同的树&lt;/li&gt;
-&lt;li&gt;开发者可以通过key属性来告知哪些元素可以在不同的渲染下保持不变。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;依据这三点，有三种比较策略&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;树比较，tree diff 不同的元素类型的树直接替换，不再遍历子节点&lt;/li&gt;
-&lt;li&gt;component diff：可以通过key来告知哪些组件需要刷新&lt;/li&gt;
-&lt;li&gt;element diff: 处理文本替换&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;优点：降低diff复杂度，由原来O(n^3)降低到O(n)
-缺点：&lt;/p&gt;
-&lt;h3&gt;Diff算法&lt;/h3&gt;
-&lt;p&gt;  具体流程：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;真实dom与虚拟dom之间存在一个映射关系，这个映射关系依靠初始化是的JSX建立完成&lt;/li&gt;
-&lt;li&gt;当虚拟dom发生变化后，就会根据差距计算生成patch，这个patch是一个结构化数据，内容包含了增加、更新、移除等；&lt;/li&gt;
-&lt;li&gt;最后再根据patch去更新真实的dom，反馈到用户的界面上&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4&gt;更新时机&lt;/h4&gt;
-&lt;p&gt;  触发更新、进行差异对比的时机。更新发生在setState、Hooks等调用操作后。&lt;/p&gt;
-&lt;h4&gt;遍历算法&lt;/h4&gt;
-&lt;p&gt;  diff 算法采用了&lt;strong&gt;深度优先遍历算法&lt;/strong&gt;。因为广度优先遍历可能会导致组件的生命周期时序错乱，而深度优先遍历算法就可以解决这个问题&lt;/p&gt;
-&lt;h4&gt;优化策略&lt;/h4&gt;
-&lt;p&gt;  React分别从&lt;strong&gt;树、组件及元素&lt;/strong&gt;三个层面进行复杂度优化&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;树比对，&lt;strong&gt;忽略节点跨层级操作的场景&lt;/strong&gt;。树比对的手法是非常暴力的，两棵树只对同一层次的节点进行比较，如果节点已经不存在了，该节点及其子节点会被完全删掉，不会用于进一步对比&lt;/li&gt;
-&lt;li&gt;如果组件的类型一致，则默认为相似的树结构，否则默认为不同的树结构&lt;/li&gt;
-&lt;li&gt;同一层级的子节点，可以通过标记key的方式进行对比&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;  React 16引入的&lt;strong&gt;Fiber设计&lt;/strong&gt;，Fiber机制下节点与树分别采用FiberNode与FiberTree进行重构。FiberNode采用双链表的结构，可以直接找到兄弟节点与子节点，使得整个更新过程可以暂停恢复。&lt;/p&gt;
-&lt;p&gt;  Fiber机制下，整个更新过程由current与workInProgress两株树双缓冲完成，当workInProgress更新完成后，通过修改current相关指针指向的节点，直接抛弃老树&lt;/p&gt;
-&lt;p&gt;  &lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/04/31/CgpVE1_q2zGAe9UzAACKAZViwbM237.png&quot; alt=&quot;proto&quot;&gt;&lt;/p&gt;
-&lt;p&gt;  尽量减少将最后一个节点移动到列表首部的操作&lt;/p&gt;
-&lt;h2&gt;vue dom diff&lt;/h2&gt;
-&lt;p&gt;与react diff大同小异，&lt;strong&gt;比较只会在同层级进行，不会跨层级比较&lt;/strong&gt;
-不同的是，vue是两端到中间的对比，react是从左到右依次进行对对比。比方说把最后一个节点移到第一个，react会依次移动前三个节点到对应位置，而vue会在首尾对比时，只移动最后一个节点到第一位。&lt;/p&gt;
-&lt;h3&gt;扩展&lt;/h3&gt;
-&lt;h5&gt;key的作用&lt;/h5&gt;
-&lt;p&gt;dom diff的时候比较新旧虚拟dom。&lt;/p&gt;
-&lt;p&gt;如果在旧虚拟dom找到新虚拟dom相同的key: 如果内容不变，直接使用之前的真实dom；若改变，生成新的真实dom，随后替换页面之前的真实dom。&lt;/p&gt;
-&lt;p&gt;如果在旧虚拟dom中没有找到新虚拟dom相同的key，就会生成新的真实dom渲染到页面。&lt;/p&gt;
-&lt;h5&gt;为什么key最好不要用index&lt;/h5&gt;
-&lt;p&gt;逆序添加、逆序删除等破坏顺序的操作，会产生虚拟dom和真实dom中key对不上的问题，产生很多没有必要的真实dom更新。&lt;/p&gt;
-&lt;h5&gt;不加key&lt;/h5&gt;
-&lt;p&gt;采用遍历的方式对比新旧节点&lt;/p&gt;</content:encoded></item><item><title><![CDATA[JS深入之闭包]]></title><description><![CDATA[什么是闭包   闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数   闭包 = 函数 + 自由变量   ECMAScript…]]></description><link>https://chinleyhuang.ink/foundamention/闭包/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/闭包/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么是闭包&lt;/h4&gt;
+&lt;p&gt;  &lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/01/3E/CgpVE1_YU2KAStLdAAFVKxh7Dyg317.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[JS深入之闭包]]></title><description><![CDATA[什么是闭包   闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数   闭包 = 函数 + 自由变量   ECMAScript…]]></description><link>https://chinleyhuang.ink/foundamention/闭包/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/闭包/</guid><pubDate>Sat, 12 Feb 2022 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;什么是闭包&lt;/h4&gt;
 &lt;hr&gt;
 &lt;p&gt;  闭包是指那些能访问自由变量（在函数中使用的既不是函数局部的变量，又不是函数参数的变量）的函数&lt;/p&gt;
 &lt;p&gt;  闭包 = 函数 + 自由变量&lt;/p&gt;
@@ -2579,7 +2580,51 @@ dp[0][j], 即：i为0，存放编号0的物品的时候，各个容量的背包�
   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; dp&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;len&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;size&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h6&gt;相关阅读&lt;/h6&gt;
-&lt;p&gt;代码随想录 &lt;a href=&quot;https://leetcode-cn.com/problems/word-break/solution/dai-ma-sui-xiang-lu-139-dan-ci-chai-fen-50a1a/&quot;&gt;https://leetcode-cn.com/problems/word-break/solution/dai-ma-sui-xiang-lu-139-dan-ci-chai-fen-50a1a/&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[JS中的树数据结构]]></title><description><![CDATA[树   树是一种被广泛应用的数据结构，例如： dom是一种树结构数据 os…]]></description><link>https://chinleyhuang.ink/leetcode/tree/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/tree/</guid><pubDate>Sun, 17 Oct 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;树&lt;/h3&gt;
+&lt;p&gt;代码随想录 &lt;a href=&quot;https://leetcode-cn.com/problems/word-break/solution/dai-ma-sui-xiang-lu-139-dan-ci-chai-fen-50a1a/&quot;&gt;https://leetcode-cn.com/problems/word-break/solution/dai-ma-sui-xiang-lu-139-dan-ci-chai-fen-50a1a/&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[JS之this]]></title><description><![CDATA[相关阅读 JavaScript 的 this 原理 - 阮一峰 this指向问题 首先来看下面的例子，不同的写法，可能有不同的结果 造成不同结果的原因，在于函数里使用到了this,obj.foo()是在obj的环境执行，因此拿到的是obj的bar。而一旦var foo = obj…]]></description><link>https://chinleyhuang.ink/foundamention/this/</link><guid isPermaLink="false">https://chinleyhuang.ink/foundamention/this/</guid><pubDate>Sat, 30 Oct 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;相关阅读&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.ruanyifeng.com/blog/2018/06/javascript-this.html&quot;&gt;JavaScript 的 this 原理 - 阮一峰&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;this指向问题&lt;/h2&gt;
+&lt;p&gt;首先来看下面的例子，不同的写法，可能有不同的结果&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;bar&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  bar&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;foo&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; bar &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 1&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;造成不同结果的原因，在于函数里使用到了this,obj.foo()是在obj的环境执行，因此拿到的是obj的bar。而一旦var foo = obj.foo, foo()就变成在全局环境执行。&lt;/p&gt;
+&lt;p&gt;那函数的运行环境到底是怎么决定的？&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;foo&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;上面的代码将一个对象赋值给变量obj，JS引擎会先在内存里生成一个对象{foo: 5},再把内存地址赋值给obj。
+原始的对象以字典结构保存，每一个属性名都对应一个属性描述对象。上面例子的foo属性，实际上是以下面的形式存在的：
+obj -&gt; foo -&gt; [[value]]:5 [[writable]]:true [[enumerable]]: true [[configurable]]: true&lt;/p&gt;
+&lt;p&gt;那如果属性的值是一个函数，like:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;这时引擎会将函数单独保存在内存中，然后再将函数的地址赋值给foo属性value属性
+&lt;img src=&quot;https://www.wangbase.com/blogimg/asset/201806/bg2018061803.png&quot; alt=&quot;hw-os-app&quot;&gt;
+由于函数是一个单独的值，所以它可以在&lt;strong&gt;不同的环境（上下文）执行&lt;/strong&gt;， 而this就是用于&lt;strong&gt;在函数体内部获得当前的运行环境&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; x&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  f&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;f&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  x&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//单独执行&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 1&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//obj环境执行&lt;/span&gt;
+obj&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;上述代码中，函数f在全局环境执行，this.x指向全局环境的x
+&lt;img src=&quot;https://www.wangbase.com/blogimg/asset/201806/bg2018061804.png&quot; alt=&quot;hw-os-app&quot;&gt;
+在obj环境执行，this.x指向obj.x
+&lt;img src=&quot;https://www.wangbase.com/blogimg/asset/201806/bg2018061805.png&quot; alt=&quot;hw-os-app&quot;&gt;&lt;/p&gt;
+&lt;h2&gt;this上下文&lt;/h2&gt;
+&lt;h3&gt;全局上下文&lt;/h3&gt;
+&lt;p&gt;无论是否在严格模式下，在&lt;strong&gt;全局执行环境&lt;/strong&gt;中(在任何函数体外部)，this都指向全局对象&lt;/p&gt;
+&lt;h3&gt;函数上下文&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;在函数内部&lt;/strong&gt;，this的值取决于函数被调用的方式。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[JS中的树数据结构]]></title><description><![CDATA[树   树是一种被广泛应用的数据结构，例如： dom是一种树结构数据 os…]]></description><link>https://chinleyhuang.ink/leetcode/tree/</link><guid isPermaLink="false">https://chinleyhuang.ink/leetcode/tree/</guid><pubDate>Sun, 17 Oct 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;树&lt;/h3&gt;
 &lt;p&gt;  树是一种被广泛应用的数据结构，例如：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;dom是一种树结构数据&lt;/li&gt;
@@ -3137,7 +3182,21 @@ style-loade把css-loader转换后的结果通过追加style的方式加载到页
 一旦配置多个 Loader，执行顺序是从后往前执行的&lt;/p&gt;
 &lt;h5&gt;插件机制：增强webpack自动化构建的能力&lt;/h5&gt;
 &lt;h5&gt;常用插件&lt;/h5&gt;
-&lt;p&gt;  clean-webpack-plugin: 实现自动在打包之前清除 dist 目录（上次的打包结果）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[按需打包 目前按需打包一般通过两种方式进行： 使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包； 使用以Babel-plugin-import为主的babel插件，实现自动按需打包 Tree shaking 实现按需打包 webpack…]]></description><link>https://chinleyhuang.ink/webpack/treeshaking/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/treeshaking/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;按需打包&lt;/h5&gt;
+&lt;p&gt;  clean-webpack-plugin: 实现自动在打包之前清除 dist 目录（上次的打包结果）&lt;/p&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[Babel是什么   Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。   babel…]]></description><link>https://chinleyhuang.ink/webpack/babel/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/babel/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;Babel是什么&lt;/h4&gt;
+&lt;p&gt;  Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。&lt;/p&gt;
+&lt;p&gt;  babel主要完成以下内容：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;语法转换，一般是高级语言特性的降级&lt;/li&gt;
+&lt;li&gt;polyfill特性的实现和接入&lt;/li&gt;
+&lt;li&gt;源码转换，比如JSX等&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;梳理Babel&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;@babel/core 是babel实现转换的核心，可以根据配置，进行源码的转换&lt;/li&gt;
+&lt;li&gt;@babel/cli 是babel提供的命令行&lt;/li&gt;
+&lt;li&gt;@babel/standalone 非node.js环境自动编译text/babel或text/jsx的type值的script标签， 可以在浏览器中直接执行，浏览器环境动态插入高级语言特性的脚本、在线自动解析编译非常有意义&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/04/5A/Cip5yF_tojyAfvQeAAMW8bbGBAY698.png&quot; alt=&quot;babel&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[按需打包 目前按需打包一般通过两种方式进行： 使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包； 使用以Babel-plugin-import为主的babel插件，实现自动按需打包 Tree shaking 实现按需打包 webpack…]]></description><link>https://chinleyhuang.ink/webpack/treeshaking/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/treeshaking/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h5&gt;按需打包&lt;/h5&gt;
 &lt;p&gt;目前按需打包一般通过两种方式进行：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;使用ES Module支持的tree shaking方案，在使用构建工具打包时，完成按需打包；&lt;/li&gt;
@@ -3152,21 +3211,7 @@ style-loade把css-loader转换后的结果通过追加style的方式加载到页
 &lt;li&gt;动态导入支持；&lt;/li&gt;
 &lt;li&gt;通过splitchunk插件提取公共代码(公共代码分割)&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5&gt;webpack对动态引入能力支持&lt;/h5&gt;</content:encoded></item><item><title><![CDATA[babel]]></title><description><![CDATA[Babel是什么   Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。   babel…]]></description><link>https://chinleyhuang.ink/webpack/babel/</link><guid isPermaLink="false">https://chinleyhuang.ink/webpack/babel/</guid><pubDate>Tue, 18 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h4&gt;Babel是什么&lt;/h4&gt;
-&lt;p&gt;  Babel就是一个JS的“编译器”。主要因为前端语言特性和宿主(浏览器/node.js)环境高速发展，但宿主环境对新语言的特性支持无法做到时，而开发者又需要兼容各种宿主环境，因此需要语言特性的降级。&lt;/p&gt;
-&lt;p&gt;  babel主要完成以下内容：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;语法转换，一般是高级语言特性的降级&lt;/li&gt;
-&lt;li&gt;polyfill特性的实现和接入&lt;/li&gt;
-&lt;li&gt;源码转换，比如JSX等&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4&gt;梳理Babel&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;@babel/core 是babel实现转换的核心，可以根据配置，进行源码的转换&lt;/li&gt;
-&lt;li&gt;@babel/cli 是babel提供的命令行&lt;/li&gt;
-&lt;li&gt;@babel/standalone 非node.js环境自动编译text/babel或text/jsx的type值的script标签， 可以在浏览器中直接执行，浏览器环境动态插入高级语言特性的脚本、在线自动解析编译非常有意义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;https://s0.lgstatic.com/i/image2/M01/04/5A/Cip5yF_tojyAfvQeAAMW8bbGBAY698.png&quot; alt=&quot;babel&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
+&lt;h5&gt;webpack对动态引入能力支持&lt;/h5&gt;</content:encoded></item><item><title><![CDATA[现代浏览器架构]]></title><description><![CDATA[名词介绍：CPU、GPU、内存和多线程架构 cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu…]]></description><link>https://chinleyhuang.ink/how-browser-work/</link><guid isPermaLink="false">https://chinleyhuang.ink/how-browser-work/</guid><pubDate>Fri, 07 May 2021 23:46:37 GMT</pubDate><content:encoded>&lt;h3&gt;名词介绍：CPU、GPU、内存和多线程架构&lt;/h3&gt;
 &lt;p&gt;cpu: 中央处理器，分为单核处理器和多核处理器，在现代硬件中，大多是多核处理器。
 gpu: 图形处理器，最初被设计为是处理图形的，但随着近年的发展，gpu可以承担更多计算任务。在三层计算机体系结构中，硬件位于底部，操作系统位于中间，应用程序则在最上层。在使用计算机时，应用程序使用操作系统提供的机制在CPU和GPU上运行。&lt;/p&gt;
