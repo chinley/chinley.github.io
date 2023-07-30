@@ -1,14 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 30 Jul 2023 14:17:21 GMT</lastBuildDate><item><title><![CDATA[SVG动画实践]]></title><description><![CDATA[SVG基本介绍 SVG:可缩放矢量图形，矢量图意味着图像能够被无限放大而不失真或者降低质量，并且可以方便地修改内容。SVG代码是XML语言进行描述，可以结合CSS以及JAVASCRIPT进行交互。 SVG有一些预定义的形状元素，可以供开发者使用
-矩形 <rect…]]></description><link>https://chinleyhuang.ink/live/svg动画/</link><guid isPermaLink="false">https://chinleyhuang.ink/live/svg动画/</guid><pubDate>Sun, 16 Jul 2023 23:46:37 GMT</pubDate><content:encoded>&lt;h2&gt;SVG基本介绍&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[chinley's blog]]></title><description><![CDATA[百事可乐]]></description><link>https://chinleyhuang.ink</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 30 Jul 2023 15:11:06 GMT</lastBuildDate><item><title><![CDATA[SVG动画实践]]></title><description><![CDATA[SVG基本介绍 SVG:可缩放矢量图形，矢量图意味着图像能够被无限放大而不失真或者降低质量，并且可以方便地修改内容。SVG代码是XML语言进行描述，可以结合CSS以及JAVASCRIPT进行交互。 SVG有一些预定义的形状元素，可以供开发者使用 矩形 <rect…]]></description><link>https://chinleyhuang.ink/live/svg动画/</link><guid isPermaLink="false">https://chinleyhuang.ink/live/svg动画/</guid><pubDate>Sun, 16 Jul 2023 23:46:37 GMT</pubDate><content:encoded>&lt;h2&gt;SVG基本介绍&lt;/h2&gt;
 &lt;p&gt;SVG:可缩放矢量图形，矢量图意味着图像能够被无限放大而不失真或者降低质量，并且可以方便地修改内容。SVG代码是XML语言进行描述，可以结合CSS以及JAVASCRIPT进行交互。&lt;/p&gt;
-&lt;p&gt;SVG有一些预定义的形状元素，可以供开发者使用
-矩形 &amp;#x3C;rect&gt;
-圆形 &amp;#x3C;circle&gt;
-椭圆 &amp;#x3C;ellipse&gt;
-线 &amp;#x3C;line&gt;
-折线 &amp;#x3C;polyline&gt;
-多边形 &amp;#x3C;polygon&gt;
-路径 &amp;#x3C;path&gt;&lt;/p&gt;
+&lt;p&gt;SVG有一些预定义的形状元素，可以供开发者使用&lt;/p&gt;
+&lt;p&gt;矩形 &amp;#x3C;rect&gt;&lt;/p&gt;
+&lt;p&gt;圆形 &amp;#x3C;circle&gt;&lt;/p&gt;
+&lt;p&gt;椭圆 &amp;#x3C;ellipse&gt;&lt;/p&gt;
+&lt;p&gt;线 &amp;#x3C;line&gt;&lt;/p&gt;
+&lt;p&gt;折线 &amp;#x3C;polyline&gt;&lt;/p&gt;
+&lt;p&gt;多边形 &amp;#x3C;polygon&gt;&lt;/p&gt;
+&lt;p&gt;路径 &amp;#x3C;path&gt;&lt;/p&gt;
 &lt;p&gt;基本用法：&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;svg xmlns&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;http://www.w3.org/2000/svg&quot;&lt;/span&gt; version&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;1.1&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
   &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;rect width&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;300&quot;&lt;/span&gt; height&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;100&quot;&lt;/span&gt; style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;fill:rgb(0,0,255);stroke-width:1;stroke:rgb(0,0,0)&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
